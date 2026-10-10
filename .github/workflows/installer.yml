@@ -1,0 +1,26 @@
+name: Build USB installers
+on:
+  push:
+    paths: ['installer/**', 'tools/build_installer.py', 'tests/test_installer.py', '.github/workflows/installer.yml', 'VERSION']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  installer:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-22.04]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r installer/requirements-build.txt
+      - run: python -m unittest discover -s tests -p test_installer.py -v
+      - run: python tools/build_installer.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DJ-DRAGON-X-Cat-Rescue-Saga-Installer-${{ runner.os }}-0.4.7
+          path: dist/installer/*.zip
+          retention-days: 90

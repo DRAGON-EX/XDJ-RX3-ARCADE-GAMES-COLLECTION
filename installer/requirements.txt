@@ -1,0 +1,4 @@
+cryptography==50.0.2
+pycdlib==1.22.0
+inflate64==1.0.4
+certifi==2026.7.22

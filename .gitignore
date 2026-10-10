@@ -1,0 +1,65 @@
+# Local firmware, sysroot, reverse-engineering notes and build outputs
+/work/
+/dist/
+__pycache__/
+*.pyc
+*.key
+*.pem
+*.bin
+*.iso
+*.rom
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.so
+*.so.*
+*.o
+*.wasm
+# ROM-bearing upstream file and locally imported sound data
+/vendor/pacman-upstream.c
+/Games/Native/Pacman/pacman_sound_data.h
+/assets/sound-provenance.json
+# Local packaging/dump helpers pending portable user-side tooling
+/tools/package_native.py
+/tools/prepare_sysroot.py
+# Local environment metadata
+.agents/
+.codex/
+.aws/
+
+# User-supplied NES games and local debugger memory captures
+*.nes
+*.core
+
+/vendor/libretro.h
+
+# SSH credentials and machine-specific connection state
+/ssh/
+id_*
+authorized_keys*
+known_hosts*
+host_key*
+*_host_*
+*.ppk
+
+# Generated playback data
+*.pcm
+
+# Generated farewell pixel data
+*.rgba
+
+# Browser renderer built entirely from our shared credits source
+!/assets/credits-scene.wasm
+
+!/Games/Native/Asteroids/asteroids.wasm
+
+!/Games/Native/DJ Wars/dj-wars.wasm
+
+# Shared game previews generated only from project-owned code
+!/Games/Native/Equalizarr/equalizarr.wasm
+!/Games/Native/Basslines/basslines.wasm
+!/Games/Native/Space Invaders/space-invaders.wasm
+/assets/music/cafe-good.mp3
+!/assets/music/good.zip
+!/assets/cat-scenes.wasm

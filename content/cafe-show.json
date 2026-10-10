@@ -1,0 +1,66 @@
+{
+  "source": "assets/music/cafe-good.mp3",
+  "sha256": "57cccb1d2f8edcef66f531739cb1b8c5a45f1bce1985abd7a40eee66e2cde6af",
+  "duration_ms": 175257,
+  "bpm": 128,
+  "beat_offset_ms": 148,
+  "cue_interval_ms": 50,
+  "sections": [
+    {
+      "ms": 0,
+      "section": 0,
+      "name": "Opening"
+    },
+    {
+      "ms": 15148,
+      "section": 1,
+      "name": "First groove"
+    },
+    {
+      "ms": 30148,
+      "section": 2,
+      "name": "First build"
+    },
+    {
+      "ms": 45148,
+      "section": 3,
+      "name": "First drop"
+    },
+    {
+      "ms": 60148,
+      "section": 4,
+      "name": "Breathing room"
+    },
+    {
+      "ms": 75148,
+      "section": 1,
+      "name": "Second groove"
+    },
+    {
+      "ms": 90148,
+      "section": 2,
+      "name": "Second build"
+    },
+    {
+      "ms": 105148,
+      "section": 3,
+      "name": "Main drop"
+    },
+    {
+      "ms": 135148,
+      "section": 1,
+      "name": "Last groove"
+    },
+    {
+      "ms": 150148,
+      "section": 5,
+      "name": "Finale"
+    },
+    {
+      "ms": 165148,
+      "section": 0,
+      "name": "Afterglow"
+    }
+  ],
+  "notes": "Grid estimated from bass onsets; envelopes extracted from this exact recording."
+}

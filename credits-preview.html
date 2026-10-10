@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Credits · scene preview</title><style>body{margin:0;background:#090709;color:#dcc3ca;font:14px monospace;text-align:center}main{position:relative;max-width:1280px;margin:auto}img{display:block;width:100%}canvas{position:absolute;left:0;top:16.25%;width:100%;height:83.75%;image-rendering:pixelated}button,a{color:#ffcd55}button{background:#261923;border:1px solid #ffcd55;padding:10px;cursor:pointer}</style><main><img src="assets/launcher-red-0.png" alt="DJ Dragon-X"><canvas width="1280" height="670" aria-label="Animated credits with cats and dragon"></canvas></main><p><button id="restart">Restart with music</button> · <a href="cat-cafe-preview.html?scene=rescue">Rescue animations</a> · <a href="cat-cafe-preview.html?scene=cafe">Purr House Café</a></p><p id="status">Credits preview · session progress stays unchanged</p><script type="module">
+const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d'),audio=new Audio('assets/music/moodmode-that-game-arcade-236111.mp3');
+try{
+ const response=await fetch('assets/credits-scene.wasm?v=cafe-chibi-dragon-2');if(!response.ok)throw Error('Credits unavailable');
+ const api=(await WebAssembly.instantiate(await response.arrayBuffer(),{})).instance.exports;
+ const pixels=new ImageData(new Uint8ClampedArray(api.memory.buffer,api.credits_buffer(),1280*670*4),1280,670);
+ let start=performance.now(),last=0,passes=0,music=false,done=false;
+ audio.addEventListener('ended',()=>{passes++;if(passes<2){audio.currentTime=0;audio.play().catch(()=>{music=false;start=performance.now()-api.credits_duration()/2;});}else done=true;});
+ document.querySelector('#restart').onclick=async()=>{audio.pause();audio.currentTime=0;passes=0;done=false;start=performance.now();try{await audio.play();music=true;}catch{music=false;}};
+ function draw(now){if(now-last>=1000/30&&!document.hidden){const elapsed=music?(done?api.credits_duration():passes*api.credits_duration()/2+audio.currentTime*1000):now-start;api.credits_frame(Math.min(api.credits_duration()-1,Math.floor(elapsed)),0,0);ctx.putImageData(pixels,0,0);last=now;}requestAnimationFrame(draw);}requestAnimationFrame(draw);
+}catch(e){document.querySelector('#status').textContent=e.message;}
+</script></html>

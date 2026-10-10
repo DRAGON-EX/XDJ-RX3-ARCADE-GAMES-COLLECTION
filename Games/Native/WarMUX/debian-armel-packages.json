@@ -1,0 +1,594 @@
+{
+  "archive": "https://archive.debian.org/debian/",
+  "release": "wheezy",
+  "packages": [
+    {
+      "Package": "warmux-data",
+      "Version": "1:11.04.1+repack-4",
+      "Filename": "pool/main/w/warmux/warmux-data_11.04.1+repack-4_all.deb",
+      "SHA256": "88387168c85ff714229a2d6307fc0f92a01f11bedb87ad32e61f36f4138a13b0",
+      "Size": "100653736"
+    },
+    {
+      "Package": "warmux",
+      "Version": "1:11.04.1+repack-4",
+      "Filename": "pool/main/w/warmux/warmux_11.04.1+repack-4_armel.deb",
+      "SHA256": "5e57e93d0e769ad3cc5176f74fe17055a7cff123dba9b23ea51d90b3df89499e",
+      "Size": "858452"
+    },
+    {
+      "Package": "libxml2",
+      "Version": "2.8.0+dfsg1-7+wheezy5",
+      "Filename": "pool/main/libx/libxml2/libxml2_2.8.0+dfsg1-7+wheezy5_armel.deb",
+      "SHA256": "8395067dd7bbd7e1d8485be62c6531dfc71d4b1e8a1b1378ca5b0b8812e83f93",
+      "Size": "828326"
+    },
+    {
+      "Package": "zlib1g",
+      "Version": "1:1.2.7.dfsg-13",
+      "Filename": "pool/main/z/zlib/zlib1g_1.2.7.dfsg-13_armel.deb",
+      "SHA256": "1d2c4fb19506b3c42216b6a61b9f9821d1a0799c8494a12ab188006904fd570b",
+      "Size": "87460"
+    },
+    {
+      "Package": "liblzma5",
+      "Version": "5.1.1alpha+20120614-2",
+      "Filename": "pool/main/x/xz-utils/liblzma5_5.1.1alpha+20120614-2_armel.deb",
+      "SHA256": "d66390886cd7377ef0ebba2c04595275a5be9d4a4b1af4573ce68e6870e1bbea",
+      "Size": "198692"
+    },
+    {
+      "Package": "libx11-6",
+      "Version": "2:1.5.0-1+deb7u2",
+      "Filename": "pool/main/libx/libx11/libx11-6_1.5.0-1+deb7u2_armel.deb",
+      "SHA256": "c9f69b58dd68ef9d236d0602e92614efa39df1758afee7ebed2b8a23325d99c0",
+      "Size": "843352"
+    },
+    {
+      "Package": "libx11-data",
+      "Version": "2:1.5.0-1+deb7u2",
+      "Filename": "pool/main/libx/libx11/libx11-data_1.5.0-1+deb7u2_all.deb",
+      "SHA256": "36c17294124414cdcc6234abf4ccbb5a94ef5e7848733dc43fcd98b082d0a716",
+      "Size": "194008"
+    },
+    {
+      "Package": "libxcb1",
+      "Version": "1.8.1-2+deb7u1",
+      "Filename": "pool/main/libx/libxcb/libxcb1_1.8.1-2+deb7u1_armel.deb",
+      "SHA256": "d314bc5d6e01904c48d1c2411d8223d36042e9b698bd7988c94b1011f11ff5c1",
+      "Size": "42686"
+    },
+    {
+      "Package": "libxdmcp6",
+      "Version": "1:1.1.1-1",
+      "Filename": "pool/main/libx/libxdmcp/libxdmcp6_1.1.1-1_armel.deb",
+      "SHA256": "685f43f30b1d6a8f2bd97b4e4bbb5bbdf491ae4e5884ef0ed4b409bbf8ac6d43",
+      "Size": "25320"
+    },
+    {
+      "Package": "libxau6",
+      "Version": "1:1.0.7-1",
+      "Filename": "pool/main/libx/libxau/libxau6_1.0.7-1_armel.deb",
+      "SHA256": "529a4393d0f398d3b530463e61ff6339c3edf836b08bc1609bb5c44f3c70c7e0",
+      "Size": "17638"
+    },
+    {
+      "Package": "libsdl1.2debian",
+      "Version": "1.2.15-5",
+      "Filename": "pool/main/libs/libsdl1.2/libsdl1.2debian_1.2.15-5_armel.deb",
+      "SHA256": "00522952571e3f00716e5ac73e6f0f3b41464eb435e151466c1a22c9d705b24e",
+      "Size": "204922"
+    },
+    {
+      "Package": "libxext6",
+      "Version": "2:1.3.1-2+deb7u1",
+      "Filename": "pool/main/libx/libxext/libxext6_1.3.1-2+deb7u1_armel.deb",
+      "SHA256": "7a9190214b3d77313c6ff97a240376de1646bae522de9edb4fcf263d11461abd",
+      "Size": "48132"
+    },
+    {
+      "Package": "libts-0.0-0",
+      "Version": "1.0-11",
+      "Filename": "pool/main/t/tslib/libts-0.0-0_1.0-11_armel.deb",
+      "SHA256": "7da670bf63ad48c2b67f5065c632e7747d39c0e620e2c6130dfa64976e2dabcb",
+      "Size": "30636"
+    },
+    {
+      "Package": "tsconf",
+      "Version": "1.0-11",
+      "Filename": "pool/main/t/tslib/tsconf_1.0-11_all.deb",
+      "SHA256": "45404629a8683f2ee94b1cdb045da0c4c08e4cff90a7dd8acee8cca0b7acb030",
+      "Size": "13388"
+    },
+    {
+      "Package": "libpulse0",
+      "Version": "2.0-6.1",
+      "Filename": "pool/main/p/pulseaudio/libpulse0_2.0-6.1_armel.deb",
+      "SHA256": "9e3630d601057c610146f1f5281d08c33e1c37633907e34c1b65ddf3ed68466d",
+      "Size": "199156"
+    },
+    {
+      "Package": "libxtst6",
+      "Version": "2:1.2.1-1+deb7u1",
+      "Filename": "pool/main/libx/libxtst/libxtst6_1.2.1-1+deb7u1_armel.deb",
+      "SHA256": "1e02710a9eed5f1cd0708046dc59b587037872ae81113747a5096822d231122a",
+      "Size": "25606"
+    },
+    {
+      "Package": "x11-common",
+      "Version": "1:7.7+3~deb7u1",
+      "Filename": "pool/main/x/xorg/x11-common_7.7+3~deb7u1_all.deb",
+      "SHA256": "e3883aab23e2be4907c01bf06ae73d30bff2078bfe8e5366e077a652d39933d2",
+      "Size": "283796"
+    },
+    {
+      "Package": "libxi6",
+      "Version": "2:1.6.1-1+deb7u1",
+      "Filename": "pool/main/libx/libxi/libxi6_1.6.1-1+deb7u1_armel.deb",
+      "SHA256": "9c96b3aad97bf5c5eab57f1fc74707cffe4aa45d7b28338c63599ad8c6556b9c",
+      "Size": "72514"
+    },
+    {
+      "Package": "libx11-xcb1",
+      "Version": "2:1.5.0-1+deb7u2",
+      "Filename": "pool/main/libx/libx11/libx11-xcb1_1.5.0-1+deb7u2_armel.deb",
+      "SHA256": "fe94e1462d92a24df6be3d0f0feae4f95c493d5d3a2a6545950a3607e85a8f00",
+      "Size": "139340"
+    },
+    {
+      "Package": "libwrap0",
+      "Version": "7.6.q-24",
+      "Filename": "pool/main/t/tcp-wrappers/libwrap0_7.6.q-24_armel.deb",
+      "SHA256": "bde1878e5a74840b0984e91c09e17e907130d66e7d7a04797586ee344ace0054",
+      "Size": "59680"
+    },
+    {
+      "Package": "libsndfile1",
+      "Version": "1.0.25-5",
+      "Filename": "pool/main/libs/libsndfile/libsndfile1_1.0.25-5_armel.deb",
+      "SHA256": "7706bf064db902e15ca28346bd73afa2710aaeb3c5a0769ee9a4f583f9183c5d",
+      "Size": "259188"
+    },
+    {
+      "Package": "libvorbisenc2",
+      "Version": "1.3.2-1.3",
+      "Filename": "pool/main/libv/libvorbis/libvorbisenc2_1.3.2-1.3_armel.deb",
+      "SHA256": "d972bd247163d48e8d3adab15b096a4a65f41e146930cceb368bd89f316ce7c2",
+      "Size": "123994"
+    },
+    {
+      "Package": "libvorbis0a",
+      "Version": "1.3.2-1.3",
+      "Filename": "pool/main/libv/libvorbis/libvorbis0a_1.3.2-1.3_armel.deb",
+      "SHA256": "d61e1797de40cc55eadbcb797890297de0a54cb34630d2de55cd7d9a2f82370a",
+      "Size": "109104"
+    },
+    {
+      "Package": "libogg0",
+      "Version": "1.3.0-4",
+      "Filename": "pool/main/libo/libogg/libogg0_1.3.0-4_armel.deb",
+      "SHA256": "2c6991fc530d34da0ae1ca4fcaedac0e3559ef1657ec68cee5626ea71c1df45d",
+      "Size": "17718"
+    },
+    {
+      "Package": "libflac8",
+      "Version": "1.2.1-6+deb7u1",
+      "Filename": "pool/main/f/flac/libflac8_1.2.1-6+deb7u1_armel.deb",
+      "SHA256": "527dee37bd85176ba93470cafe619960092ede91dd1a56ceb90a26a7b64b4448",
+      "Size": "142878"
+    },
+    {
+      "Package": "libsm6",
+      "Version": "2:1.2.1-2",
+      "Filename": "pool/main/libs/libsm/libsm6_1.2.1-2_armel.deb",
+      "SHA256": "ba46f819d0b2b941d4ea7739ccfa07e5d267bff9d32c352827e9d656a7420539",
+      "Size": "32536"
+    },
+    {
+      "Package": "libuuid1",
+      "Version": "2.20.1-5.3",
+      "Filename": "pool/main/u/util-linux/libuuid1_2.20.1-5.3_armel.deb",
+      "SHA256": "63c7168db563d4bec4b57fdaad5cf6c797cc9f176dc4526c489c8fe159feed92",
+      "Size": "57774"
+    },
+    {
+      "Package": "libice6",
+      "Version": "2:1.0.8-2",
+      "Filename": "pool/main/libi/libice/libice6_1.0.8-2_armel.deb",
+      "SHA256": "9f4a35ac90e48cd2addd950bc628101f000215dfce352ebacdac8f2220db01e5",
+      "Size": "56482"
+    },
+    {
+      "Package": "libjson0",
+      "Version": "0.10-1.2",
+      "Filename": "pool/main/j/json-c/libjson0_0.10-1.2_armel.deb",
+      "SHA256": "1494feffb9b19a21dd25d95a6b127699839ec6433f39cfd908e8b08ccb435312",
+      "Size": "23124"
+    },
+    {
+      "Package": "libdbus-1-3",
+      "Version": "1.6.8-1+deb7u6",
+      "Filename": "pool/main/d/dbus/libdbus-1-3_1.6.8-1+deb7u6_armel.deb",
+      "SHA256": "70b8742392733af336774b811be60af3060cdad794c4713226e6b17e8190110d",
+      "Size": "155102"
+    },
+    {
+      "Package": "libcap2",
+      "Version": "1:2.22-1.2",
+      "Filename": "pool/main/libc/libcap2/libcap2_2.22-1.2_armel.deb",
+      "SHA256": "b5e7892149acde805196da07cfeb0bfe36dfe96dc2f6b3f068b4c5cfeae3e6fe",
+      "Size": "12450"
+    },
+    {
+      "Package": "libattr1",
+      "Version": "1:2.4.46-8",
+      "Filename": "pool/main/a/attr/libattr1_2.4.46-8_armel.deb",
+      "SHA256": "9bb5174d2dfa336af1063793f024d359d8275136a95006e08c70425d2b707951",
+      "Size": "18476"
+    },
+    {
+      "Package": "libasyncns0",
+      "Version": "0.8-4",
+      "Filename": "pool/main/liba/libasyncns/libasyncns0_0.8-4_armel.deb",
+      "SHA256": "f9b8197cb5c9f4bfc31fbb0e56f688d902ab6134be387f7cb4543086bd71ce53",
+      "Size": "12608"
+    },
+    {
+      "Package": "libdirectfb-1.2-9",
+      "Version": "1.2.10.0-5",
+      "Filename": "pool/main/d/directfb/libdirectfb-1.2-9_1.2.10.0-5_armel.deb",
+      "SHA256": "4f833388abe1842faacd2b82683d837e1dd4eb4c05ec86dfe4d2de746aeca1e8",
+      "Size": "1137358"
+    },
+    {
+      "Package": "libcaca0",
+      "Version": "0.99.beta18-1",
+      "Filename": "pool/main/libc/libcaca/libcaca0_0.99.beta18-1_armel.deb",
+      "SHA256": "d95dc57af1ebf3b8ecc1a3a35669d8f1682023e6a1d7a8abfe730a1bb6b41aaa",
+      "Size": "388156"
+    },
+    {
+      "Package": "libtinfo5",
+      "Version": "5.9-10",
+      "Filename": "pool/main/n/ncurses/libtinfo5_5.9-10_armel.deb",
+      "SHA256": "0a2a27b29ac28ba75147431cd4d1d5c187bc5a6077c2f662361fe69334db8f06",
+      "Size": "264014"
+    },
+    {
+      "Package": "libslang2",
+      "Version": "2.2.4-15",
+      "Filename": "pool/main/s/slang2/libslang2_2.2.4-15_armel.deb",
+      "SHA256": "b0579497e84c8d639a6a589bdb3b05ce89cc279274c2d2a57f46057f872a67bf",
+      "Size": "523068"
+    },
+    {
+      "Package": "libncursesw5",
+      "Version": "5.9-10",
+      "Filename": "pool/main/n/ncurses/libncursesw5_5.9-10_armel.deb",
+      "SHA256": "b3cbdc8f605269bd8f2e7582040122247fce6515713a7113ce798fad2a5f2d4c",
+      "Size": "119930"
+    },
+    {
+      "Package": "libasound2",
+      "Version": "1.0.25-4",
+      "Filename": "pool/main/a/alsa-lib/libasound2_1.0.25-4_armel.deb",
+      "SHA256": "03f4b3db8fae1db675211280088aa22694ebe03ff829052687190883a246e3c6",
+      "Size": "411386"
+    },
+    {
+      "Package": "libsdl-ttf2.0-0",
+      "Version": "2.0.11-2",
+      "Filename": "pool/main/s/sdl-ttf2.0/libsdl-ttf2.0-0_2.0.11-2_armel.deb",
+      "SHA256": "5e823dfa3eb49c8cbe067cd16b2ea6875c555dd97a584859f398d6345728af10",
+      "Size": "20122"
+    },
+    {
+      "Package": "libfreetype6",
+      "Version": "2.4.9-1.1+deb7u3",
+      "Filename": "pool/main/f/freetype/libfreetype6_2.4.9-1.1+deb7u3_armel.deb",
+      "SHA256": "11891c0257d0f8ed3faefebc5398ec8a9b353f6c156d18b71b4dfce981caf1b4",
+      "Size": "400932"
+    },
+    {
+      "Package": "libsdl-net1.2",
+      "Version": "1.2.8-2",
+      "Filename": "pool/main/s/sdl-net1.2/libsdl-net1.2_1.2.8-2_armel.deb",
+      "SHA256": "b0c7336f44e3bd09048a3eacea740fe4f1c5e6492aef9f0ab5ae277b494b991a",
+      "Size": "14956"
+    },
+    {
+      "Package": "libsdl-mixer1.2",
+      "Version": "1.2.12-3",
+      "Filename": "pool/main/s/sdl-mixer1.2/libsdl-mixer1.2_1.2.12-3_armel.deb",
+      "SHA256": "c42eb7ee7d4f00b0a16c0553a73b4a125aefe051dd89c9917da3411646c49fe4",
+      "Size": "93890"
+    },
+    {
+      "Package": "libvorbisfile3",
+      "Version": "1.3.2-1.3",
+      "Filename": "pool/main/libv/libvorbis/libvorbisfile3_1.3.2-1.3_armel.deb",
+      "SHA256": "c0fa097655fa22d77e567a3bba400dfbdb58cf79cadbf9e6d072f52ccbc4f026",
+      "Size": "26346"
+    },
+    {
+      "Package": "libmikmod2",
+      "Version": "3.1.12-5",
+      "Filename": "pool/main/libm/libmikmod/libmikmod2_3.1.12-5_armel.deb",
+      "SHA256": "20f078f4c0f379bffe237442b2e78ac157340da6485b87fc6605ee4ea2650904",
+      "Size": "162572"
+    },
+    {
+      "Package": "libmad0",
+      "Version": "0.15.1b-7",
+      "Filename": "pool/main/libm/libmad/libmad0_0.15.1b-7_armel.deb",
+      "SHA256": "7be478b17fdcb9d136a75699d8efa8e93424991eec16274653894c6c2562e682",
+      "Size": "80334"
+    },
+    {
+      "Package": "libsdl-image1.2",
+      "Version": "1.2.12-2",
+      "Filename": "pool/main/s/sdl-image1.2/libsdl-image1.2_1.2.12-2_armel.deb",
+      "SHA256": "a94d24be1a37fe5193d06f5affc11446d0cd5319bdbf23e5c0fead8164d0ec54",
+      "Size": "35668"
+    },
+    {
+      "Package": "libwebp2",
+      "Version": "0.1.3-3+nmu1",
+      "Filename": "pool/main/libw/libwebp/libwebp2_0.1.3-3+nmu1_armel.deb",
+      "SHA256": "d3c250682f714b6b7d23d8e9aa5898e4737285beb0a327494bb392c80ece4264",
+      "Size": "101284"
+    },
+    {
+      "Package": "libtiff4",
+      "Version": "3.9.6-11",
+      "Filename": "pool/main/t/tiff3/libtiff4_3.9.6-11_armel.deb",
+      "SHA256": "89f119846e42316e626b8c2bbf2eb72feb45312b937e6f853643d17922ca354d",
+      "Size": "190856"
+    },
+    {
+      "Package": "libjpeg8",
+      "Version": "8d-1+deb7u1",
+      "Filename": "pool/main/libj/libjpeg8/libjpeg8_8d-1+deb7u1_armel.deb",
+      "SHA256": "e60710f5fb4c0df1ae43b311f186849c22a86be1cfd35be3a9b4805be251d730",
+      "Size": "152214"
+    },
+    {
+      "Package": "libjbig0",
+      "Version": "2.0-2+deb7u1",
+      "Filename": "pool/main/j/jbigkit/libjbig0_2.0-2+deb7u1_armel.deb",
+      "SHA256": "38f66a1c253130510704ea8e720d58af2d48eeb2c202d777db717c2df0ab038c",
+      "Size": "31348"
+    },
+    {
+      "Package": "libpng12-0",
+      "Version": "1.2.49-1+deb7u2",
+      "Filename": "pool/main/libp/libpng/libpng12-0_1.2.49-1+deb7u2_armel.deb",
+      "SHA256": "c1cbffcfc6979ff57a9606da4ff793e31784ef6c19b356cd413002c9c98b9c7c",
+      "Size": "182594"
+    },
+    {
+      "Package": "libsdl-gfx1.2-4",
+      "Version": "2.0.23-3",
+      "Filename": "pool/main/s/sdlgfx/libsdl-gfx1.2-4_2.0.23-3_armel.deb",
+      "SHA256": "d2efcfd8fef8510f2575cec66b9f43ee05baf76d48ddece8913d857c6c94e0aa",
+      "Size": "54304"
+    },
+    {
+      "Package": "libfribidi0",
+      "Version": "0.19.2-3",
+      "Filename": "pool/main/f/fribidi/libfribidi0_0.19.2-3_armel.deb",
+      "SHA256": "7619c02378f6338d60eeb98ab8194b4be486e4e60cb488bdd870af17e92aa43d",
+      "Size": "35648"
+    },
+    {
+      "Package": "libcurl3-gnutls",
+      "Version": "7.26.0-1+wheezy13",
+      "Filename": "pool/main/c/curl/libcurl3-gnutls_7.26.0-1+wheezy13_armel.deb",
+      "SHA256": "6ca80c69af31a12e1008c558e3adf0643d0ea38684a0278f58fade358138de28",
+      "Size": "308328"
+    },
+    {
+      "Package": "libssh2-1",
+      "Version": "1.4.2-1.1+deb7u2",
+      "Filename": "pool/main/libs/libssh2/libssh2-1_1.4.2-1.1+deb7u2_armel.deb",
+      "SHA256": "3447a7343ca90978c5d169ef74273e9e91cc1fd62b3621ccb8128d955f0ec7e1",
+      "Size": "125178"
+    },
+    {
+      "Package": "libgcrypt11",
+      "Version": "1.5.0-5+deb7u4",
+      "Filename": "pool/main/libg/libgcrypt11/libgcrypt11_1.5.0-5+deb7u4_armel.deb",
+      "SHA256": "79cb107766a9c2c54145ef90637eb86f2d6c1039d8f8282a34a00ac2ccb9bfb1",
+      "Size": "301738"
+    },
+    {
+      "Package": "libgpg-error0",
+      "Version": "1.10-3.1",
+      "Filename": "pool/main/libg/libgpg-error/libgpg-error0_1.10-3.1_armel.deb",
+      "SHA256": "c4a4f03dc90a4305202ccc9a4a3292e4dd85aaee1ae59c15037d2fc4a216f52b",
+      "Size": "78356"
+    },
+    {
+      "Package": "librtmp0",
+      "Version": "2.4+20111222.git4e06e21-1",
+      "Filename": "pool/main/r/rtmpdump/librtmp0_2.4+20111222.git4e06e21-1_armel.deb",
+      "SHA256": "e99d78511883d87ff4981146f166c232507aff48af367b22bfa60ec830f180e6",
+      "Size": "58674"
+    },
+    {
+      "Package": "libgnutls26",
+      "Version": "2.12.20-8+deb7u5",
+      "Filename": "pool/main/g/gnutls26/libgnutls26_2.12.20-8+deb7u5_armel.deb",
+      "SHA256": "a9937d63cda424b3ef47c3ca7a5322d8d3fd449806a92e67282948d11bbe29b3",
+      "Size": "596204"
+    },
+    {
+      "Package": "libtasn1-3",
+      "Version": "2.13-2+deb7u2",
+      "Filename": "pool/main/libt/libtasn1-3/libtasn1-3_2.13-2+deb7u2_armel.deb",
+      "SHA256": "86538397eb938a99ef0f38985db70851215ee0a91472b2bba2178054beab9fe6",
+      "Size": "64020"
+    },
+    {
+      "Package": "libp11-kit0",
+      "Version": "0.12-3",
+      "Filename": "pool/main/p/p11-kit/libp11-kit0_0.12-3_armel.deb",
+      "SHA256": "e7c7204141982a93c7486c35635c1e816fdc1d275f9d4f867a9208b5bf74ea19",
+      "Size": "48736"
+    },
+    {
+      "Package": "libldap-2.4-2",
+      "Version": "2.4.31-2+deb7u2",
+      "Filename": "pool/main/o/openldap/libldap-2.4-2_2.4.31-2+deb7u2_armel.deb",
+      "SHA256": "8ff1eeb9aadb4ef78933df8b153c73881b7942cde12ed60584316215a10b230d",
+      "Size": "216762"
+    },
+    {
+      "Package": "libsasl2-2",
+      "Version": "2.1.25.dfsg1-6+deb7u1",
+      "Filename": "pool/main/c/cyrus-sasl2/libsasl2-2_2.1.25.dfsg1-6+deb7u1_armel.deb",
+      "SHA256": "f6ab4973c52d5f525873e05d31a738453be712f32683da58ff3194aca69b7eaa",
+      "Size": "109716"
+    },
+    {
+      "Package": "libdb5.1",
+      "Version": "5.1.29-5",
+      "Filename": "pool/main/d/db/libdb5.1_5.1.29-5_armel.deb",
+      "SHA256": "2029f9456e91908ed3de944dbbd4cda4256350bfb436035790815f28cc0831c0",
+      "Size": "647894"
+    },
+    {
+      "Package": "libidn11",
+      "Version": "1.25-2",
+      "Filename": "pool/main/libi/libidn/libidn11_1.25-2_armel.deb",
+      "SHA256": "6143d226632b86b63994b138e667dd61c62a089822c2c2306579d898f52cc5b0",
+      "Size": "175830"
+    },
+    {
+      "Package": "libgssapi-krb5-2",
+      "Version": "1.10.1+dfsg-5+deb7u7",
+      "Filename": "pool/main/k/krb5/libgssapi-krb5-2_1.10.1+dfsg-5+deb7u7_armel.deb",
+      "SHA256": "3a2e3a06463ccc7c039167a2897ce9a1dd132bcb8e72dc510c7d5b8d7437d504",
+      "Size": "133454"
+    },
+    {
+      "Package": "libkrb5support0",
+      "Version": "1.10.1+dfsg-5+deb7u7",
+      "Filename": "pool/main/k/krb5/libkrb5support0_1.10.1+dfsg-5+deb7u7_armel.deb",
+      "SHA256": "7033373aa672034665554549cfdcf37a970b3552bf2950e9744fbe817e09ed8a",
+      "Size": "47038"
+    },
+    {
+      "Package": "libkeyutils1",
+      "Version": "1.5.5-3+deb7u1",
+      "Filename": "pool/main/k/keyutils/libkeyutils1_1.5.5-3+deb7u1_armel.deb",
+      "SHA256": "582652e527615fc4aa6b919e543a1d7058ec223727403f9580d422e1d82c3740",
+      "Size": "7872"
+    },
+    {
+      "Package": "libkrb5-3",
+      "Version": "1.10.1+dfsg-5+deb7u7",
+      "Filename": "pool/main/k/krb5/libkrb5-3_1.10.1+dfsg-5+deb7u7_armel.deb",
+      "SHA256": "67fede0f4f94444628a8900c01ee14eb9313ec6679b2ea95e97973edabbcc1b6",
+      "Size": "341860"
+    },
+    {
+      "Package": "libk5crypto3",
+      "Version": "1.10.1+dfsg-5+deb7u7",
+      "Filename": "pool/main/k/krb5/libk5crypto3_1.10.1+dfsg-5+deb7u7_armel.deb",
+      "SHA256": "690843bbe6686885f3f981a938b31fe04b4c0b4ddcd7b271a00c184137ac21d0",
+      "Size": "111426"
+    },
+    {
+      "Package": "libcomerr2",
+      "Version": "1.42.5-1.1+deb7u1",
+      "Filename": "pool/main/e/e2fsprogs/libcomerr2_1.42.5-1.1+deb7u1_armel.deb",
+      "SHA256": "f912a91f2e3771b2068551ec1e0ce1ec49e7f87e1e1cf3c2db5a548b2ff2b97c",
+      "Size": "54942"
+    },
+    {
+      "Package": "libstdc++6-4.6-dev",
+      "Version": "4.6.3-14",
+      "Filename": "pool/main/g/gcc-4.6/libstdc++6-4.6-dev_4.6.3-14_armel.deb",
+      "SHA256": "510b4ee79ba2923d5247c9225cef0626d980e67d828ea249be4ab6a2e90a9183",
+      "Size": "1710012"
+    },
+    {
+      "Package": "libc6-dev",
+      "Version": "2.13-38+deb7u10",
+      "Filename": "pool/main/e/eglibc/libc6-dev_2.13-38+deb7u10_armel.deb",
+      "SHA256": "52b2b47e331577f1751e21413f4021224458747ba667500196ba35445066e090",
+      "Size": "2514638"
+    },
+    {
+      "Package": "linux-libc-dev",
+      "Version": "3.2.78-1",
+      "Filename": "pool/main/l/linux/linux-libc-dev_3.2.78-1_armel.deb",
+      "SHA256": "c288e4b0a40bf829cec69f79991379eeea8a263e0918cda85b9abce744fcddf2",
+      "Size": "830522"
+    },
+    {
+      "Package": "libsdl1.2-dev",
+      "Version": "1.2.15-5",
+      "Filename": "pool/main/libs/libsdl1.2/libsdl1.2-dev_1.2.15-5_armel.deb",
+      "SHA256": "30969cca38f5327033462c93cb857aa835fb8ad31c9cd0673244efda54063900",
+      "Size": "878010"
+    },
+    {
+      "Package": "libsdl-mixer1.2-dev",
+      "Version": "1.2.12-3",
+      "Filename": "pool/main/s/sdl-mixer1.2/libsdl-mixer1.2-dev_1.2.12-3_armel.deb",
+      "SHA256": "30c63ee7c42211732c8a33de82551eb73f7edc5b2b369db08b980dff14e39bed",
+      "Size": "121386"
+    },
+    {
+      "Package": "libsdl-image1.2-dev",
+      "Version": "1.2.12-2",
+      "Filename": "pool/main/s/sdl-image1.2/libsdl-image1.2-dev_1.2.12-2_armel.deb",
+      "SHA256": "f0b749a96ed8a35fe4c0f2ac3363073d867ca528d430cf07192966201b62d451",
+      "Size": "40890"
+    },
+    {
+      "Package": "libsdl-ttf2.0-dev",
+      "Version": "2.0.11-2",
+      "Filename": "pool/main/s/sdl-ttf2.0/libsdl-ttf2.0-dev_2.0.11-2_armel.deb",
+      "SHA256": "23d060972dad28d1e2d9cf03b4b834c81d1ab6049848d3b74feaef78ebf55b33",
+      "Size": "28842"
+    },
+    {
+      "Package": "libsdl-gfx1.2-dev",
+      "Version": "2.0.23-3",
+      "Filename": "pool/main/s/sdlgfx/libsdl-gfx1.2-dev_2.0.23-3_armel.deb",
+      "SHA256": "873d6cd9e58a8f1bb693ec953eea370079d61ba516600d7098eef80805d55511",
+      "Size": "60192"
+    },
+    {
+      "Package": "libsdl-net1.2-dev",
+      "Version": "1.2.8-2",
+      "Filename": "pool/main/s/sdl-net1.2/libsdl-net1.2-dev_1.2.8-2_armel.deb",
+      "SHA256": "039d00070939907e75d61c6138d8e3bb48c667b2b9baf22e091e63bcb7e4c0bc",
+      "Size": "26236"
+    },
+    {
+      "Package": "libxml2-dev",
+      "Version": "2.8.0+dfsg1-7+wheezy5",
+      "Filename": "pool/main/libx/libxml2/libxml2-dev_2.8.0+dfsg1-7+wheezy5_armel.deb",
+      "SHA256": "5e6b841c0c9a58350ad3a76a8d4d6baba563348f2fcef17ca7cb4deea61d97ef",
+      "Size": "842704"
+    },
+    {
+      "Package": "libpng12-dev",
+      "Version": "1.2.49-1+deb7u2",
+      "Filename": "pool/main/libp/libpng/libpng12-dev_1.2.49-1+deb7u2_armel.deb",
+      "SHA256": "05971c875ae33770047991d6f055fd7100738d3266e90e5efd9586085d4f8ba9",
+      "Size": "261494"
+    },
+    {
+      "Package": "zlib1g-dev",
+      "Version": "1:1.2.7.dfsg-13",
+      "Filename": "pool/main/z/zlib/zlib1g-dev_1.2.7.dfsg-13_armel.deb",
+      "SHA256": "5d2cea3b8e20b61aae1e478024fd40ec51e5bd826852cd2b8af0f11e080fb800",
+      "Size": "210980"
+    }
+  ]
+}

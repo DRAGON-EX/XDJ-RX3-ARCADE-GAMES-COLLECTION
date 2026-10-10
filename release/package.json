@@ -1,0 +1,479 @@
+{
+  "format": 1,
+  "version": "0.4.7",
+  "model": "XDJ-RX3",
+  "sha256": "8064486db95625632d8c06892c960b1b8d584dc25c61762bb3dabee3e0cd5b1e",
+  "payload_bytes": 78262213,
+  "chunks": [
+    {
+      "path": "release/chunks/000.part",
+      "size": 768000,
+      "sha256": "634fbde1e2ca62efd0d47ad8f6af24113ac7f490f63e9a5cb6dfb24f747f0fff"
+    },
+    {
+      "path": "release/chunks/001.part",
+      "size": 768000,
+      "sha256": "2342810a8fac95d192d6a19c19ad998352e0ef262aaa056f9c4718279483a0b9"
+    },
+    {
+      "path": "release/chunks/002.part",
+      "size": 768000,
+      "sha256": "c2ad138eb297408ec2b43897c954f6b94bbaade71b59d777d68fccd3e4a66617"
+    },
+    {
+      "path": "release/chunks/003.part",
+      "size": 768000,
+      "sha256": "8e8a12134e4e9f466ee59a0cdc42087f8b7b0e9f5fa45054151a07db9b9032e4"
+    },
+    {
+      "path": "release/chunks/004.part",
+      "size": 768000,
+      "sha256": "e11a57e8f5d457fe9c19609a0e8982eebdc282d6c5edeab599a270116bfec47c"
+    },
+    {
+      "path": "release/chunks/005.part",
+      "size": 768000,
+      "sha256": "7c729cb2dde91328476c00a1c0c521942d5fc2855a71c24c3bca94ae1836c913"
+    },
+    {
+      "path": "release/chunks/006.part",
+      "size": 768000,
+      "sha256": "8bce9c89349b6bfc5271664f719c487d9dbe5de59a6cf1cad3e94443cc6a10c4"
+    },
+    {
+      "path": "release/chunks/007.part",
+      "size": 768000,
+      "sha256": "7a09d9f8fc46f05e770328cbaa762cfa2d12a67c2f37fd409860079d597b997e"
+    },
+    {
+      "path": "release/chunks/008.part",
+      "size": 768000,
+      "sha256": "d60c16d3fdec9339b4b67f0426337841252512af850e28e9748576eff15e7bdd"
+    },
+    {
+      "path": "release/chunks/009.part",
+      "size": 768000,
+      "sha256": "9b498962bc0ca81ff6152a400577037088ce78dfbb34b9074ea2ad7e25c0651c"
+    },
+    {
+      "path": "release/chunks/010.part",
+      "size": 768000,
+      "sha256": "48c0286c21b58d0e8365cc1c49bde213fee10ffcaf711d1ae4e690b564d42b9d"
+    },
+    {
+      "path": "release/chunks/011.part",
+      "size": 768000,
+      "sha256": "16c505f266d6a50ee02802dce0cfe20e615080e6c35552e9b674cfce6f0553f4"
+    },
+    {
+      "path": "release/chunks/012.part",
+      "size": 768000,
+      "sha256": "f6d7ff2b29973aeae5d07827171dcbf4e0e07d8aeb12be4fcb5becc4390d026c"
+    },
+    {
+      "path": "release/chunks/013.part",
+      "size": 768000,
+      "sha256": "be4359ce12d19d283e62677891e6463c636a7f2d14375063988b69db44a56c8f"
+    },
+    {
+      "path": "release/chunks/014.part",
+      "size": 768000,
+      "sha256": "19c3910d5df230feda0a7c6acf7b9f6b006b0aaff9746125cd906d8b57a267d3"
+    },
+    {
+      "path": "release/chunks/015.part",
+      "size": 768000,
+      "sha256": "a7d9b8b9de39fd0158928cca31523847bb20cad62fb424535f20167dd835c20e"
+    },
+    {
+      "path": "release/chunks/016.part",
+      "size": 768000,
+      "sha256": "41398e17720e78ac3847ffea11edbdda76d9bad3ff15661914ad1c14d381708b"
+    },
+    {
+      "path": "release/chunks/017.part",
+      "size": 768000,
+      "sha256": "f873a639b81f2c3e5970166919b442123b12ef39095083a941f7f659b2b04b7b"
+    },
+    {
+      "path": "release/chunks/018.part",
+      "size": 768000,
+      "sha256": "00299bb697d7981b6038ef25c1b7830ddd18814c45041f9e99521e75cb78299c"
+    },
+    {
+      "path": "release/chunks/019.part",
+      "size": 768000,
+      "sha256": "fb0a641870019167efdb40beb52aa622ac46bbd0e1c295fbb6952a57e01a73d9"
+    },
+    {
+      "path": "release/chunks/020.part",
+      "size": 768000,
+      "sha256": "16ad56953ec51860960cf1efd270ddab02f8d0ec76fc71af796a714000573e5d"
+    },
+    {
+      "path": "release/chunks/021.part",
+      "size": 768000,
+      "sha256": "b9898a040b48b3581fbe17eb96a2196ca3a6d7fbf67805a5c0e2e2da88b7af98"
+    },
+    {
+      "path": "release/chunks/022.part",
+      "size": 768000,
+      "sha256": "d06b9e4a5850f0da45e287ad0762e0fdf982a5c487dfa9817f4cd491fb683017"
+    },
+    {
+      "path": "release/chunks/023.part",
+      "size": 768000,
+      "sha256": "4d37c6396b319475c1605d2cc15e845a6b8b3844fca3f2b35deccd7c8d836fc6"
+    },
+    {
+      "path": "release/chunks/024.part",
+      "size": 768000,
+      "sha256": "a1d6afa5feac4ce80821dbef291ff6296b040dd6a3912b15bea09e2a9c696955"
+    },
+    {
+      "path": "release/chunks/025.part",
+      "size": 768000,
+      "sha256": "96d8a419fa7935daff471c7f05a05b235b72ad69158b919e9699553be36e8bef"
+    },
+    {
+      "path": "release/chunks/026.part",
+      "size": 768000,
+      "sha256": "b8ec4c2e3eff1091293e7747cfa06100a348e07095bd16d6ffed99c80cda5af7"
+    },
+    {
+      "path": "release/chunks/027.part",
+      "size": 768000,
+      "sha256": "e2de130a43719aa6773f1b17d703c24e3d3c0539a72a04e0ecc25bfa0a8e27b8"
+    },
+    {
+      "path": "release/chunks/028.part",
+      "size": 768000,
+      "sha256": "96f258b63eb4f6b594a8f07cd276021ad37cebccabd64785411e5ab470ed0fbb"
+    },
+    {
+      "path": "release/chunks/029.part",
+      "size": 768000,
+      "sha256": "5e6a3c8f7ee904446f92c0b3afef470f051cc03571871380c2781d1a59893b59"
+    },
+    {
+      "path": "release/chunks/030.part",
+      "size": 768000,
+      "sha256": "b25dd25fcc5aa315d3fb00aef0ae2aae925c657bd08f579f712c25ae8ab1edc6"
+    },
+    {
+      "path": "release/chunks/031.part",
+      "size": 768000,
+      "sha256": "6eb9847ae5bae4ba71350a7f753cf64cf7000545d6a06ff8490a805ecf4bf887"
+    },
+    {
+      "path": "release/chunks/032.part",
+      "size": 768000,
+      "sha256": "efba76e78dd113fa77f0a90fdd38373dbb64cefc3584e71d538747642ede3a13"
+    },
+    {
+      "path": "release/chunks/033.part",
+      "size": 768000,
+      "sha256": "dbf609aa6fa26789f449b728287300cdbd742331ca3369af3872226b9063d7e4"
+    },
+    {
+      "path": "release/chunks/034.part",
+      "size": 768000,
+      "sha256": "8d6f7a8c404318204dc3df5f2d56b75d1486fea77388637e57541f9f44ad1784"
+    },
+    {
+      "path": "release/chunks/035.part",
+      "size": 768000,
+      "sha256": "c16c4ba7f1bde63909ddc0aa5cab5153586c1f5bf7555b25c94f1c4a56cb3ef8"
+    },
+    {
+      "path": "release/chunks/036.part",
+      "size": 768000,
+      "sha256": "3502182255c5830b4cdd7b8cb48fd181b7019c8c86f022b4e54ee33ba78d7f48"
+    },
+    {
+      "path": "release/chunks/037.part",
+      "size": 768000,
+      "sha256": "7707918bce4966e596a850459f58c155aa86913e1320ab54216fe7dbf172a5fe"
+    },
+    {
+      "path": "release/chunks/038.part",
+      "size": 768000,
+      "sha256": "c4ba85140ba1cd0edf5a9b81cfadeb2e41fd5d91ead4d29ef97752ff0f4d193e"
+    },
+    {
+      "path": "release/chunks/039.part",
+      "size": 768000,
+      "sha256": "86a67b04120c88e702f86a41b00f6e8f731acaf8f3a9619dba897fc484447327"
+    },
+    {
+      "path": "release/chunks/040.part",
+      "size": 768000,
+      "sha256": "9c52da7c7a1db17cf0796bd6c71446f211c600cdf8153df4d629770fb85e2c3a"
+    },
+    {
+      "path": "release/chunks/041.part",
+      "size": 768000,
+      "sha256": "184e5784f3814bb8f207c80dad4b6d4cea1287df7b07fd933a0ec95d8d410fc9"
+    },
+    {
+      "path": "release/chunks/042.part",
+      "size": 768000,
+      "sha256": "e0baf3ca7c63c3399eaada7d5a125465f3042b0d18a5cb82fd6d98c0cde5d7f8"
+    },
+    {
+      "path": "release/chunks/043.part",
+      "size": 768000,
+      "sha256": "e43c67ef73c7e5d205d5f551a5332751fd369dd38b543c0d5cf66e7693e45cae"
+    },
+    {
+      "path": "release/chunks/044.part",
+      "size": 768000,
+      "sha256": "3762c111d2651869e0b28cc272cd8be2a84e73f2a8f5f012f452de9ec9137713"
+    },
+    {
+      "path": "release/chunks/045.part",
+      "size": 768000,
+      "sha256": "1fa311be73e959b3572d947b7b952446b992b518967384d6e322732639d8a2e4"
+    },
+    {
+      "path": "release/chunks/046.part",
+      "size": 768000,
+      "sha256": "b23ec7dbd238e6ff3a751ee2a3e6b71720f922b7b7deb6261b8c3548d4af60d2"
+    },
+    {
+      "path": "release/chunks/047.part",
+      "size": 768000,
+      "sha256": "618a21b5b8a2888290fef4d04055b75e75313a895da7b386ab57ebba9f90d466"
+    },
+    {
+      "path": "release/chunks/048.part",
+      "size": 768000,
+      "sha256": "dcd8edaccb8c6b978ae9d41ab2447175ef4ec9f4fdb21c456a35f91b75a8ae2b"
+    },
+    {
+      "path": "release/chunks/049.part",
+      "size": 768000,
+      "sha256": "d2e7a3e2b95bd06b26d248576ac31c9c807670dfa1b305d67a131296aea651bd"
+    },
+    {
+      "path": "release/chunks/050.part",
+      "size": 768000,
+      "sha256": "772fc20390c22e05df85e93509b62cff5ac49165d791922ade013226ce7c56f5"
+    },
+    {
+      "path": "release/chunks/051.part",
+      "size": 768000,
+      "sha256": "cbd7919cc9ec6a47911c9fce310b4b1562f629621ac1cb4d3b93c3834b0c9f42"
+    },
+    {
+      "path": "release/chunks/052.part",
+      "size": 768000,
+      "sha256": "52c15c884647a979dab9958558481baa567b511afcd22c6eaa11c0ae10947968"
+    },
+    {
+      "path": "release/chunks/053.part",
+      "size": 768000,
+      "sha256": "bd5f742ea7aba49b15ee239a67330dcd32cf76518300665fb548221536fb243f"
+    },
+    {
+      "path": "release/chunks/054.part",
+      "size": 768000,
+      "sha256": "38b3cbe23f458b969a810b27c12629e0eb08aaadec580c7482e20d08427d7a17"
+    },
+    {
+      "path": "release/chunks/055.part",
+      "size": 768000,
+      "sha256": "da137a2210e4bfbf9bd2d0df8262143e4fcd4999ab116765f9121538dee27af4"
+    },
+    {
+      "path": "release/chunks/056.part",
+      "size": 768000,
+      "sha256": "521ae0c6a9ead6aaab24d7a5c59490577169787d483ae0a810197929f638cf22"
+    },
+    {
+      "path": "release/chunks/057.part",
+      "size": 768000,
+      "sha256": "f6fc00fdee98769e7142efdf91ee4ba43e86350c515fce62c91dbb37e95143f4"
+    },
+    {
+      "path": "release/chunks/058.part",
+      "size": 768000,
+      "sha256": "474c9861da9bfbfc42b5a3c9d4f78b77cdc125d05183a27c6438b539a0c426c2"
+    },
+    {
+      "path": "release/chunks/059.part",
+      "size": 768000,
+      "sha256": "cb9337bf2892e526f7548371b7a733c2d78d5caf98fdd2c177898823b500964d"
+    },
+    {
+      "path": "release/chunks/060.part",
+      "size": 768000,
+      "sha256": "28040120107305b8bb650ff68a4718bc0ec25e51b17e0f3fe0f9d28f0f04b0c0"
+    },
+    {
+      "path": "release/chunks/061.part",
+      "size": 768000,
+      "sha256": "2a3c0443d768e045214e0153817d1a1b4bb283cbd2053a4c26ac0b8c47604a33"
+    },
+    {
+      "path": "release/chunks/062.part",
+      "size": 768000,
+      "sha256": "7c60d638c3e1e7ca25ab763942ab59b4b6a0c3adcb1cb6d644c23e1011787356"
+    },
+    {
+      "path": "release/chunks/063.part",
+      "size": 768000,
+      "sha256": "4b5096ad6a938137c2f6d2979fd93ddbd946edc75000294f3556eb153ad44a09"
+    },
+    {
+      "path": "release/chunks/064.part",
+      "size": 768000,
+      "sha256": "4b3d50b20337288157e74698a87fa01644e7458dcb912e6f785e4ce3ae09f500"
+    },
+    {
+      "path": "release/chunks/065.part",
+      "size": 768000,
+      "sha256": "0a52292671ca89fe9ad5fa5ca9fc657ac5e375f80f92eaa873b59fd0f6f8c7a2"
+    },
+    {
+      "path": "release/chunks/066.part",
+      "size": 768000,
+      "sha256": "f2405f4f7a5d874e9d9b11ee80a2c5be57cdef60086564432eb6eeb03028f7b4"
+    },
+    {
+      "path": "release/chunks/067.part",
+      "size": 768000,
+      "sha256": "384b66eb5ddbd1833bfb95b6026aafd7e721932b3c453f98944e20e2a717f312"
+    },
+    {
+      "path": "release/chunks/068.part",
+      "size": 768000,
+      "sha256": "8912ba89bc1ecbf6fd1b3387f6ee727638627973a25db408e9fbfbbeba269c85"
+    },
+    {
+      "path": "release/chunks/069.part",
+      "size": 768000,
+      "sha256": "08d1d99487565ec766b51dc303e2ca9cc87d5acbdd3b97341a90c1aa73f7b5f1"
+    },
+    {
+      "path": "release/chunks/070.part",
+      "size": 768000,
+      "sha256": "3edaee824db0f601ea100fdf8979a6ea8e20c8f0797c4819d1b650ead985209c"
+    },
+    {
+      "path": "release/chunks/071.part",
+      "size": 768000,
+      "sha256": "7cc03524384ac8eb1a0e71eb762cd53926c72b71395827c84d4d0d1dc1f569e9"
+    },
+    {
+      "path": "release/chunks/072.part",
+      "size": 768000,
+      "sha256": "c1bf66c3619cf64da3ed0f4a83c9170112e3dcccce17854143ce6a505e2f0a13"
+    },
+    {
+      "path": "release/chunks/073.part",
+      "size": 768000,
+      "sha256": "6987ee6e937b8fa5a5aa16aa0160213b51880478b914bcc2688ee7a0bc51d7cd"
+    },
+    {
+      "path": "release/chunks/074.part",
+      "size": 768000,
+      "sha256": "e1cbfb086bba385ec1000c2bb2f85bfc90a86d8ab42edd0af542e7ae8d712378"
+    },
+    {
+      "path": "release/chunks/075.part",
+      "size": 768000,
+      "sha256": "1ee38e1416858728a63ad00dd3768269119291cc733e598317f49221624fbb1a"
+    },
+    {
+      "path": "release/chunks/076.part",
+      "size": 768000,
+      "sha256": "5a884be427eb5388e2260b6e80608dfb38a3c58329810bf12d6b5a0f1c9c8986"
+    },
+    {
+      "path": "release/chunks/077.part",
+      "size": 768000,
+      "sha256": "384491a079994d7f7664f27f0f703639d0b30efce35e5454db1a2f540ee087ac"
+    },
+    {
+      "path": "release/chunks/078.part",
+      "size": 768000,
+      "sha256": "328657fba8f3da4be7e50be476ebef24bd1a66cd7195508be53f33be2324598c"
+    },
+    {
+      "path": "release/chunks/079.part",
+      "size": 768000,
+      "sha256": "bc7dce1f76a7ea490c63d9d7b14020bc55195998fe52201055d1d42e49b255c8"
+    },
+    {
+      "path": "release/chunks/080.part",
+      "size": 768000,
+      "sha256": "50905f0bfba9c55bc02f18b6c3bc158aca0a99880385f8416e54a6bace56ab8a"
+    },
+    {
+      "path": "release/chunks/081.part",
+      "size": 768000,
+      "sha256": "b79d0603a3217b6d7c27502c99ba830c80beb64ff7d90af7af4744faf07aafca"
+    },
+    {
+      "path": "release/chunks/082.part",
+      "size": 768000,
+      "sha256": "8430b442e1d14061dac5f577d27e852883c9ba439ab72eb2c61c2287616bd8b7"
+    },
+    {
+      "path": "release/chunks/083.part",
+      "size": 768000,
+      "sha256": "b1667a707d9ce3ec81ebcde0fbb18cd3defe9802f98236030807bd093dc68e85"
+    },
+    {
+      "path": "release/chunks/084.part",
+      "size": 768000,
+      "sha256": "3e1fae551dd080679807cd80e25f4bf27cbaf24aca4fd1303bb30b9705ea8b0c"
+    },
+    {
+      "path": "release/chunks/085.part",
+      "size": 768000,
+      "sha256": "2cb31b7d54018049f5481686dcb968321df48abf7562c4b4c40190424171999a"
+    },
+    {
+      "path": "release/chunks/086.part",
+      "size": 768000,
+      "sha256": "45db0ae3adbab8b2ea2ea2dd4d7fd315182a90cb8d0bcd5a78eaec95ccdc2843"
+    },
+    {
+      "path": "release/chunks/087.part",
+      "size": 768000,
+      "sha256": "ce9e54a6ea7d234d3a3127b363ebc89c25869349e796662da0ae953d25aebaf9"
+    },
+    {
+      "path": "release/chunks/088.part",
+      "size": 768000,
+      "sha256": "d5b795a9aa92dc20ef2eb357d65c5fdd6af5f68c2085789a3194a4cffd383b9c"
+    },
+    {
+      "path": "release/chunks/089.part",
+      "size": 768000,
+      "sha256": "ba00b72a59b53dcc2e31083dc2d05ba5432a7e9d9f053b704e0a2b15b7d0f224"
+    },
+    {
+      "path": "release/chunks/090.part",
+      "size": 768000,
+      "sha256": "72a806e727ee44c728b087864265694d4fdbd98640e1ddd18d6eee68bc56e9fa"
+    },
+    {
+      "path": "release/chunks/091.part",
+      "size": 768000,
+      "sha256": "7f9c03391cc296f2a76a8b34779bd4dce8ffb34be2276dcfb6de8b232431ca1b"
+    },
+    {
+      "path": "release/chunks/092.part",
+      "size": 768000,
+      "sha256": "bb56ce0c228e6e74b1774edf38d3c6ee91f5270f619796d5b49f2ed5b663cfda"
+    },
+    {
+      "path": "release/chunks/093.part",
+      "size": 758521,
+      "sha256": "3807fe44d9e3b796e6fb242a20c947352626b3f27a2c366cfa4cd7c798e70a1f"
+    }
+  ]
+}

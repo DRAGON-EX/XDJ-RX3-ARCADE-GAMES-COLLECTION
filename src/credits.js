@@ -1,0 +1,31 @@
+/* Shared C/WASM scene: the browser previews the same pixel animation as the RX3. */
+(() => {
+ const previewScene=new URLSearchParams(location.search).get('credits-preview')==='code';
+ let previewStart=0,previewSpan=0;
+ const main=document.querySelector('main'),canvas=document.createElement('canvas');canvas.width=1280;canvas.height=670;canvas.hidden=true;canvas.id='credits-canvas';canvas.setAttribute('aria-label','Animated credits: DJ dragon, dancing cats and scrolling music credits');
+ Object.assign(canvas.style,{position:'absolute',left:'0',top:'16.25%',width:'100%',height:'83.75%',imageRendering:'pixelated',touchAction:'none'});main.append(canvas);
+ const ctx=canvas.getContext('2d');let visible=false,instance=null,image=null,raf=0,elapsed=0,last=0,finished=false,generation=0,abort=null,lastDraw=0,hiddenPlaying=false,totalMs=0;
+ function button(label,x,y,w,h,run){const b=document.createElement('button');b.textContent=label;b.setAttribute('aria-label',label);Object.assign(b.style,{position:'absolute',left:x/12.8+'%',top:y/8+'%',width:w/12.8+'%',height:h/8+'%',opacity:'0',cursor:'pointer'});b.hidden=true;b.onclick=run;main.append(b);return b;}
+ const close=button('Close animated credits',1090,168,140,46,()=>{page='';render();});
+ const open=button('Play unlocked secret song',442,615,396,48,()=>{if(!finished)return;page='music';render();window.RX3MusicPlayer.choose(window.RX3MusicPlayer.secretIndex);});
+ const lockedBack=button('Back to the rescue',420,582,440,56,()=>{page='';render();});
+ const again=button('Replay credits',48,168,290,46,()=>{elapsed=0;finished=false;last=performance.now();window.RX3MusicPlayer.restartCredits();});
+ canvas.addEventListener('click',()=>{if(previewScene||(page==='credits-locked'||page==='rescue-locked')||confirmStep>=0)return;if(!window.RX3MusicPlayer.creditsProgress().complete)window.RX3MusicPlayer.audio.play().catch(()=>{});});
+ let confirmStep=-1,confirmReturn='';
+ const no=button('No - go back',240,500,340,64,()=>{confirmStep=-1;page=confirmReturn;render();});
+ const yes=button('Yes - continue',700,500,340,64,()=>{if(++confirmStep===3){confirmStep=-1;page='credits';render();}else draw();});
+ function request(){confirmReturn=page;confirmStep=window.RX3Session.rescued?0:-1;page=window.RX3Session.rescued?'credits-confirm':'credits-locked';document.querySelector('#ready').hidden=true;render();}
+ function draw(){if(!instance)return;if((page==='credits-locked'||page==='rescue-locked')){page==='rescue-locked'?instance.exports.rescue_locked_frame(window.RX3Session.catMask,theme==='neon'?1:0):instance.exports.credits_locked_frame(theme==='neon'?1:0);ctx.putImageData(image,0,0);return;}if(confirmStep>=0)instance.exports.credits_confirm_frame(confirmStep,theme==='neon'?1:0);else instance.exports.credits_frame(Math.floor(elapsed),theme==='neon'?1:0,finished?1:0);ctx.putImageData(image,0,0);open.hidden=confirmStep>=0||!finished;}
+ function frame(now){if(!visible)return;if((page==='credits-locked'||page==='rescue-locked')){draw();return;}const delta=last?Math.min(250,Math.max(0,now-last)):0;last=now;if(previewScene&&confirmStep<0&&instance){if(!document.hidden)elapsed=previewStart+(elapsed-previewStart+delta)%previewSpan;if(now-lastDraw>=1000/30){draw();lastDraw=now;}raf=requestAnimationFrame(frame);return;}const progress=window.RX3MusicPlayer.creditsProgress();if(!finished)elapsed=progress.fraction*totalMs;else if(!document.hidden)elapsed+=delta;
+  if(progress.complete&&!finished){finished=true;elapsed=totalMs;window.RX3MusicPlayer.unlockSecret();window.RX3Cafe.open();return;}
+  if(now-lastDraw>=1000/30){draw();lastDraw=now;}raf=requestAnimationFrame(frame);
+ }
+ async function start(){const locked=(page==='credits-locked'||page==='rescue-locked');const token=++generation;elapsed=0;last=0;finished=false;canvas.hidden=false;close.hidden=again.hidden=locked||confirmStep>=0;no.hidden=yes.hidden=locked||confirmStep<0;lockedBack.hidden=!locked;if(previewScene)again.hidden=true;open.hidden=true;abort=new AbortController();
+  try{const response=await fetch('assets/credits-scene.wasm?v=cafe-chibi-dragon-2',{signal:abort.signal});if(!response.ok)throw Error('Credits renderer unavailable');const loaded=await WebAssembly.instantiate(await response.arrayBuffer(),{});if(token!==generation||!visible)return;instance=loaded.instance;totalMs=instance.exports.credits_duration();if(previewScene&&!locked){previewStart=instance.exports.credits_code_start();previewSpan=instance.exports.credits_code_span();elapsed=previewStart;document.querySelector('#status').textContent='ROBOT SCENE PREVIEW - CLOSE TO RETURN';}else if(!locked&&confirmStep<0)window.RX3MusicPlayer.beginCredits();image=new ImageData(new Uint8ClampedArray(instance.exports.memory.buffer,instance.exports.credits_buffer(),1280*670*4),1280,670);draw();document.documentElement.classList.remove('credits-handoff');raf=requestAnimationFrame(frame);}
+  catch(e){if(e.name!=='AbortError'&&visible){document.documentElement.classList.remove('credits-handoff');document.querySelector('#status').textContent='CREDITS COULD NOT LOAD - CLOSE AND TRY AGAIN';}}
+ }
+ function stop(){generation++;abort?.abort();abort=null;cancelAnimationFrame(raf);canvas.hidden=close.hidden=open.hidden=again.hidden=no.hidden=yes.hidden=lockedBack.hidden=true;instance=null;image=null;window.RX3MusicPlayer.endCredits();}
+ window.RX3Credits={request,requestRescue(){page='rescue-locked';confirmStep=-1;document.querySelector('#ready').hidden=true;render();},sync(){if(['credits','credits-confirm'].includes(page)&&!window.RX3Session.rescued){page='credits-locked';confirmStep=-1;}const next=page==='credits'||page==='credits-confirm'||(page==='credits-locked'||page==='rescue-locked');if(visible&&next&&page!=='credits-locked'&&page!=='rescue-locked'&&((confirmStep<0)!==no.hidden)){stop();visible=false;}if(next!==visible){visible=next;if(next)start();else stop();}else if(next)draw();}};
+ document.addEventListener('visibilitychange',()=>{last=0;if(!visible||previewScene)return;const audio=window.RX3MusicPlayer.audio;if(document.hidden){hiddenPlaying=!audio.paused;audio.pause();}else if(hiddenPlaying){hiddenPlaying=false;audio.play().catch(()=>{});}});
+ if(new URLSearchParams(location.search).get('credits')==='1'){page='credits';document.querySelector('#ready').hidden=true;render();}
+})();

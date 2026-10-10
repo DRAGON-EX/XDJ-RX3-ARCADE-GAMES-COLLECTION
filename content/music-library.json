@@ -1,0 +1,102 @@
+[
+  {
+    "source": "assets/music/slimeyfox-hyperarcade-bonus-points.mp3",
+    "title": "Hyperarcade Bonus Points",
+    "artist": "Slimeyfox",
+    "locked": false
+  },
+  {
+    "source": "assets/music/moodmode-retro-game-arcade.mp3",
+    "title": "Retro Game Arcade",
+    "artist": "Moodmode",
+    "locked": false
+  },
+  {
+    "source": "assets/music/moodmode-8-bit-retro-game-music.mp3",
+    "title": "8 Bit Retro Game Music",
+    "artist": "Moodmode",
+    "locked": false
+  },
+  {
+    "source": "assets/music/djartmusic-best-game-console.mp3",
+    "title": "Best Game Console",
+    "artist": "DJARTMUSIC",
+    "locked": false
+  },
+  {
+    "source": "assets/music/musicinmedia-chiptune-happiness-retro-8bit-game-music-453214.mp3",
+    "title": "Chiptune Happiness",
+    "artist": "MusicInMedia",
+    "locked": false
+  },
+  {
+    "source": "assets/music/slimeyfox-hyperarcade-quickest-582346.mp3",
+    "title": "Hyperarcade Quickest",
+    "artist": "Slimeyfox",
+    "locked": false
+  },
+  {
+    "source": "assets/music/junipersona-pixel-plains-158773.mp3",
+    "title": "Pixel Plains",
+    "artist": "Junipersona",
+    "locked": false
+  },
+  {
+    "source": "assets/music/nickpanek-epic-chiptune-end-credits-music-235893.mp3",
+    "title": "Epic Chiptune End Credits Music",
+    "artist": "Nickpanek",
+    "locked": false
+  },
+  {
+    "source": "assets/music/djartmusic-the-return-of-the-8-bit-era-301292.mp3",
+    "title": "The Return of the 8-Bit Era",
+    "artist": "DJARTMUSIC",
+    "locked": false
+  },
+  {
+    "source": "assets/music/djartmusic-so-happy-with-my-8-bit-game-301275.mp3",
+    "title": "So Happy With My 8-Bit Game",
+    "artist": "DJARTMUSIC",
+    "locked": false
+  },
+  {
+    "source": "assets/music/djartmusic-fun-with-my-8-bit-game-301278.mp3",
+    "title": "Fun With My 8-Bit Game",
+    "artist": "DJARTMUSIC",
+    "locked": false
+  },
+  {
+    "source": "assets/music/alex-morgan-game-level-pixel-quest-loop-578505.mp3",
+    "title": "Game Level Pixel Quest Loop",
+    "artist": "Alex Morgan",
+    "locked": true,
+    "unlock": "dj-wars",
+    "lock_message": "SECRET SONG WIN DJ WARS TO UNLOCK"
+  },
+  {
+    "source": "assets/music/moodmode-that-game-arcade-236111.mp3",
+    "title": "That Game Arcade",
+    "artist": "Moodmode",
+    "locked": true,
+    "unlock": "credits",
+    "lock_message": "SECRET SONG WATCH CREDITS TO UNLOCK"
+  },
+  {
+    "source": "assets/music/tunetank-synthwave-retro-80s-music-349182.mp3",
+    "title": "Synthwave Retro 80s Music",
+    "artist": "TuneTank",
+    "locked": true
+  },
+  {
+    "source": "assets/music/moodmode-news-summary-449042.mp3",
+    "title": "News Summary",
+    "artist": "Moodmode",
+    "locked": true
+  },
+  {
+    "source": "assets/music/echoes_of_lumen-video-games-584898.mp3",
+    "title": "Video Games",
+    "artist": "Echoes of Lumen",
+    "locked": true
+  }
+]

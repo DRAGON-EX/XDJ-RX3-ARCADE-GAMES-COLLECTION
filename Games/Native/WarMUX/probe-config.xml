@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <version>11.04</version>
+  <map>arcaderoom</map>
+  <default_language>en_US</default_language>
+  <teams>
+    <team_0><id>bugzilla</id><player_name>RX3 team 1</player_name><nb_characters>6</nb_characters><ai>default</ai></team_0>
+    <team_1><id>firefox</id><player_name>RX3 team 2</player_name><nb_characters>6</nb_characters><ai>default</ai></team_1>
+  </teams>
+  <video><width>1280</width><height>800</height><max_fps>30</max_fps><full_screen>false</full_screen><quality>1</quality><wind_particles_percentage>20</wind_particles_percentage></video>
+  <sound><music>true</music><effects>true</effects><frequency>44100</frequency></sound>
+  <misc><check_updates>false</check_updates></misc>
+</config>

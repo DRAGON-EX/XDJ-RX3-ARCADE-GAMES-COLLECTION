@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Purr House Café · RX3 scene preview</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#090709;color:#b7a1a8;font:14px monospace}main{position:relative;max-width:1280px;margin:auto}img{display:block;width:100%;image-rendering:pixelated}canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}p{text-align:center;padding:0 12px}a{color:#ffcd55}
+#vinyl{position:absolute;left:78.75%;top:43%;width:7.03125%;height:10.5%;padding:0;border:0;border-radius:50%;background:transparent;cursor:pointer}#vinyl:focus-visible{outline:3px solid #f4ce86;outline-offset:4px}
+</style>
+<main><img src="assets/launcher-red-0.png" alt="DJ Dragon-X Games Collection"><canvas width="1280" height="800" aria-label="Animated cats and dragon in the DJ cafe"></canvas><button id="vinyl" aria-label="Play Good and the Purr House lightshow" aria-pressed="false" title="Play the vinyl" hidden></button></main>
+<p id="status">SCENE PREVIEW · click the shelf record for the lightshow · session progress stays unchanged</p>
+<section id="rx3-lights" aria-label="RX3 button lightshow preview" hidden></section>
+<p><a href="?scene=cafe&empty=1">Before the rescue</a> · <a href="?scene=cafe">Café + arrivals</a> · <a href="?scene=cafe&won=1">DJ WARS victory</a> · <a href="?scene=rescue">All rescue animations</a> · <a href="?scene=0">Yuki</a> · <a href="?scene=1">Peach</a> · <a href="?scene=2">Cookie</a> · <a href="?scene=3">Mochi</a> · <a href="launcher-preview.html?menu=1&v=cat-cafe-1">Menu</a></p>
+<script src="src/game-music.js?v=vinyl-lightshow-1"></script>
+<script type="module">
+import {cafeLedPreview} from './src/cafe-led-preview.js';
+window.addEventListener('pagehide',()=>{window.RX3Audio.cafe(false);window.RX3Audio.finishRescue();},{once:true});
+const q=new URLSearchParams(location.search),scene=q.get('scene')||'cafe',won=q.has('won'),empty=q.has('empty'),canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d'),vinyl=document.querySelector('#vinyl');
+try{
+ const r=await fetch('assets/cat-scenes.wasm?v=vinyl-lightshow-1');if(!r.ok)throw Error('Scene unavailable');const api=(await WebAssembly.instantiate(await r.arrayBuffer(),{})).instance.exports;
+ const image=new ImageData(new Uint8ClampedArray(api.memory.buffer,api.cats_buffer(),1280*800*4),1280,800);
+ const ledHost=document.querySelector('#rx3-lights');ledHost.hidden=scene!=='cafe';const drawLeds=cafeLedPreview(api,ledHost);
+ let rescuePass=-1,start=performance.now(),last=0,stage=-1,origin=start;
+ vinyl.hidden=scene!=='cafe';vinyl.onclick=()=>window.RX3Audio.cafeShow();
+ window.addEventListener('pointerdown',event=>{
+  if(event.target.closest('#vinyl'))return;
+  if(scene==='cafe'){
+   const show=window.RX3Audio.cafeShowState();if(show.active||show.pending)return;
+   window.RX3Audio.sceneMusic('cafe','assets/music/junipersona-pixel-plains-158773.mp3');window.RX3Audio.meow(0,true);
+  }else{rescuePass=-1;start=performance.now();}
+ });
+ if(scene==='cafe')window.RX3Audio.cafe(true);
+ function draw(now){
+  if(now-last>=1000/30&&!document.hidden){
+   const elapsed=now-start;
+   if(scene==='cafe'){
+    const next=empty?-2:won?4:Math.min(4,Math.floor(elapsed/13000));
+    if(next!==stage){const seen=stage<0?(won?15:0):api.cats_seen();stage=next;origin=now;api.cats_open(seen,empty?0:next===4?15:(1<<(next+1))-1,next===4?1:0,7189+next);}
+    const show=window.RX3Audio.cafeShowState();api.cats_show(show.active?1:0,show.ms);
+    drawLeds(show,now);
+    vinyl.setAttribute('aria-pressed',String(!!(show.active||show.pending)));vinyl.setAttribute('aria-label',show.active||show.pending?'Stop the Purr House lightshow':'Play Good and the Purr House lightshow');
+    api.cats_cafe(Math.floor(now-origin),0);ctx.clearRect(0,0,1280,800);ctx.putImageData(image,0,0,0,130,1280,670);
+   }else{
+    const pass=Math.floor(elapsed/20000);if(pass!==rescuePass){rescuePass=pass;window.RX3Audio.rescue(scene==='rescue'?pass%4:Number(scene)||0);}
+    api.cats_rescue(scene==='rescue'?Math.floor(elapsed/20000)%4:Math.max(0,Math.min(3,Number(scene)||0)),Math.min(19999,Math.floor(elapsed%20000)),0);ctx.putImageData(image,0,0);
+   }
+   last=now;
+  }
+  requestAnimationFrame(draw);
+ }
+ requestAnimationFrame(draw);
+}catch(e){document.querySelector('#status').textContent=e.message;}
+</script></html>
