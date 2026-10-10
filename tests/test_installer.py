@@ -62,4 +62,20 @@ class InstallerTests(unittest.TestCase):
    self.assertEqual((p/'autoexec.bin').read_bytes(),b'old')
  def test_token_cannot_leave_github(self):
   with self.assertRaises(core.InstallError):core.GitHub('example').get('https://example.com/')
+ def test_public_files_do_not_consume_api_quota(self):
+  from unittest.mock import MagicMock
+  opener=MagicMock();opener.open.return_value.__enter__.return_value.read.return_value=b'chunk'
+  with patch.object(core.urllib.request,'build_opener',return_value=opener):
+   self.assertEqual(core.GitHub().file('release/chunks/000.part','a'*40),b'chunk')
+  request=opener.open.call_args.args[0]
+  self.assertEqual(request.full_url,'https://raw.githubusercontent.com/'+core.REPOSITORY+'/'+'a'*40+'/release/chunks/000.part')
+  self.assertFalse(request.has_header('Authorization'))
+ def test_authenticated_files_keep_token_on_api(self):
+  client=core.GitHub('example')
+  with patch.object(client,'get',return_value={'encoding':'base64','content':'YQ=='}) as get:
+   self.assertEqual(client.file('release/package.json','a'*40),b'a')
+   self.assertTrue(get.call_args.args[0].startswith(core.API+'/contents/'))
+ def test_file_ref_and_path_validation(self):
+  for path,commit in [('release/package.json','main'),('../other','a'*40),('/other','a'*40),('a\\b','a'*40)]:
+   with self.assertRaises(core.InstallError):core.GitHub().file(path,commit)
 if __name__=='__main__':unittest.main()

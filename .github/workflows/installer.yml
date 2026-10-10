@@ -3,6 +3,11 @@ on:
   push:
     paths: ['installer/**', 'tools/build_installer.py', 'tests/test_installer.py', '.github/workflows/installer.yml', 'VERSION']
   workflow_dispatch:
+    inputs:
+      publish_release:
+        description: Update the Windows and Linux installer downloads in release v0.4.7
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -24,3 +29,19 @@ jobs:
           name: DJ-DRAGON-X-Cat-Rescue-Saga-Installer-${{ runner.os }}-0.4.7
           path: dist/installer/*.zip
           retention-days: 90
+  publish:
+    if: github.event_name == 'workflow_dispatch' && inputs.publish_release && github.ref == 'refs/heads/main'
+    needs: installer
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: DJ-DRAGON-X-Cat-Rescue-Saga-Installer-*-0.4.7
+          merge-multiple: true
+          path: installers
+      - name: Update release installer downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload v0.4.7 installers/*.zip --clobber --repo "$GITHUB_REPOSITORY"

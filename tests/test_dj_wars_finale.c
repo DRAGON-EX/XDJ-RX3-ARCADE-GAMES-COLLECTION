@@ -27,6 +27,8 @@ static void test_win(const char*folder){
  advance(180);assert_revived();assert(g.unit[0].y<DW_H-24);assert(g.event==12);
  save_frame(folder,"dj-wars-victory-reunion");
  dw_choose_weapon(&g,2);dw_fire(&g);assert(!g.shot[0].live);dw_check_end(&g);assert(g.finale_tick==180);
+ advance(720);assert(g.state==DW_FINALE&&g.winner==-1); /* Keep celebrating past the old 12-second boundary. */
+ advance(2699);assert(g.state==DW_FINALE);
  advance(DW_VICTORY_TICKS-1);assert(g.state==DW_FINALE&&g.winner==-1);
  dw_tick(&g,255);assert(g.state==DW_OVER&&g.winner==0&&!g.finale_assisted);
  assert(g.remaining==remaining&&g.turn==turn&&g.power==power&&g.terrain_version==terrain);
@@ -50,6 +52,8 @@ static void test_assist(const char*folder,int draw){
  }
  advance(DW_CELEBRATE_TICK);assert(g.event==14&&!dw_alive(&g,1));assert(g.winner==-1);
  if(!draw)save_frame(folder,"dj-wars-master-fireworks");
+ advance(DW_CELEBRATE_TICK+720);assert(g.state==DW_FINALE&&g.winner==-1);
+ advance(DW_CELEBRATE_TICK+2699);assert(g.state==DW_FINALE);
  advance(DW_ASSIST_TICKS-1);assert(g.state==DW_FINALE&&g.winner==-1);
  dw_tick(&g,255);assert(g.state==DW_OVER&&g.winner==0&&g.finale_assisted);
  assert(g.remaining==timer&&g.turn==turn&&g.terrain_version==terrain&&terrain_hash()==hash);assert_revived();
@@ -77,5 +81,5 @@ static void test_drowned_revival(void){
 int main(int argc,char**argv){
  const char*folder=argc>1?argv[1]:0;render_sequence=folder!=0;
  test_win(folder);test_assist(folder,0);test_assist(folder,1);test_partial_enemies();test_drowned_revival();
- puts("DJ Wars finales passed: delayed unlock, revival, 12-second victory celebration, 25.5-second assisted rescue, precise per-enemy shots, draw, partial enemies, reset and frozen controls.");return 0;
+ puts("DJ Wars finales passed: delayed unlock, revival, 45-second victory celebration, 58.5-second assisted rescue, precise per-enemy shots, draw, partial enemies, reset and frozen controls.");return 0;
 }

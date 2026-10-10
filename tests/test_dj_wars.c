@@ -20,24 +20,24 @@ static void mobility_fixture(void){
 static int fall_damage(int height){mobility_fixture();g.unit[4].y-=height;for(int n=0;n<250;n++)dw_move_unit(&g,&g.unit[4]);return 100-g.unit[4].hp;}
 static void test_mobility(void){
  reset();assert(g.unit[4].tools[0]==2&&g.unit[4].tools[1]==2&&g.unit[7].tools[0]==2&&g.unit[7].tools[1]==2);assert(g.unit[0].tools[0]==0);
- mobility_fixture();dw_choose_weapon(&g,5);dw_mark(&g,900,500);dw_tick(&g,DW_FIRE);assert(g.unit[4].x==900&&g.unit[4].y==600&&g.unit[4].tools[0]==1);assert(g.state==DW_SETTLE&&g.turn==1&&g.unit[4].fall==0);
- dw_choose_weapon(&g,6);assert(g.weapon==0); /* No more actions after teleport. */
+ mobility_fixture();dw_choose_weapon(&g,DW_TELEPORT);dw_mark(&g,900,500);dw_tick(&g,DW_FIRE);assert(g.unit[4].x==900&&g.unit[4].y==600&&g.unit[4].tools[0]==1);assert(g.state==DW_SETTLE&&g.turn==1&&g.unit[4].fall==0);
+ dw_choose_weapon(&g,DW_JETPACK);assert(g.weapon==0); /* No more actions after teleport. */
  for(int n=0;n<60;n++)dw_tick(&g,0);assert(g.turn==2&&g.team==1&&g.remaining==DW_TURN_TICKS-1);
  /* Return to this fighter later: the remaining use survives the turn change. */
  g.active=4;g.team=0;g.state=DW_AIM;g.remaining=DW_TURN_TICKS;
- dw_choose_weapon(&g,5);dw_mark(&g,900,680);dw_tick(&g,DW_FIRE);assert(g.unit[4].tools[0]==1&&g.event==10&&g.state==DW_AIM); /* Inside terrain. */
+ dw_choose_weapon(&g,DW_TELEPORT);dw_mark(&g,900,680);dw_tick(&g,DW_FIRE);assert(g.unit[4].tools[0]==1&&g.event==10&&g.state==DW_AIM); /* Inside terrain. */
  dw_tick(&g,0);dw_mark(&g,(int)g.unit[1].x,1000);dw_tick(&g,DW_FIRE);assert(g.unit[4].tools[0]==1&&g.state==DW_AIM); /* Occupied landing. */
- dw_tick(&g,0);dw_mark(&g,600,1000);dw_tick(&g,DW_FIRE);assert(!g.unit[4].tools[0]&&g.unit[4].hp==100&&g.state==DW_SETTLE);dw_choose_weapon(&g,5);assert(g.weapon==0);
- mobility_fixture();dw_choose_weapon(&g,6);dw_tick(&g,DW_FIRE);assert(g.jet_ticks==600&&g.unit[4].tools[1]==1);for(int n=0;n<50;n++)dw_tick(&g,DW_UP);assert(g.unit[4].y<1010&&g.unit[4].hp==100&&g.jet_ticks==550);dw_tick(&g,DW_FIRE);assert(!g.jet_ticks&&g.weapon==0);for(int n=0;n<180;n++)dw_tick(&g,0);assert(g.unit[4].hp<100); /* Dropping after stopping can hurt. */
- mobility_fixture();g.unit[4].x=900;g.unit[4].y=850;dw_choose_weapon(&g,6);dw_tick(&g,DW_FIRE);for(int n=0;n<100;n++)dw_tick(&g,DW_UP);assert(g.unit[4].y>=758&&g.unit[4].hp==100); /* Ceiling collision. */
+ dw_tick(&g,0);dw_mark(&g,600,1000);dw_tick(&g,DW_FIRE);assert(!g.unit[4].tools[0]&&g.unit[4].hp==100&&g.state==DW_SETTLE);dw_choose_weapon(&g,DW_TELEPORT);assert(g.weapon==0);
+ mobility_fixture();dw_choose_weapon(&g,DW_JETPACK);dw_tick(&g,DW_FIRE);assert(g.jet_ticks==600&&g.unit[4].tools[1]==1);for(int n=0;n<50;n++)dw_tick(&g,DW_UP);assert(g.unit[4].y<1010&&g.unit[4].hp==100&&g.jet_ticks==550);dw_tick(&g,DW_FIRE);assert(!g.jet_ticks&&g.weapon==0);for(int n=0;n<180;n++)dw_tick(&g,0);assert(g.unit[4].hp<100); /* Dropping after stopping can hurt. */
+ mobility_fixture();g.unit[4].x=900;g.unit[4].y=850;dw_choose_weapon(&g,DW_JETPACK);dw_tick(&g,DW_FIRE);for(int n=0;n<100;n++)dw_tick(&g,DW_UP);assert(g.unit[4].y>=758&&g.unit[4].hp==100); /* Ceiling collision. */
  g.remaining=1;dw_tick(&g,0);assert(g.team==1&&!g.jet_ticks);
- mobility_fixture();dw_choose_weapon(&g,6);dw_tick(&g,DW_FIRE);for(int n=0;n<600;n++)dw_tick(&g,0);assert(!g.jet_ticks&&g.unit[4].tools[1]==1);dw_choose_weapon(&g,6);dw_tick(&g,DW_FIRE);assert(g.unit[4].tools[1]==0&&g.jet_ticks);dw_tick(&g,0);dw_tick(&g,DW_FIRE);dw_choose_weapon(&g,6);assert(g.weapon==0);
+ mobility_fixture();dw_choose_weapon(&g,DW_JETPACK);dw_tick(&g,DW_FIRE);for(int n=0;n<600;n++)dw_tick(&g,0);assert(!g.jet_ticks&&g.unit[4].tools[1]==1);dw_choose_weapon(&g,DW_JETPACK);dw_tick(&g,DW_FIRE);assert(g.unit[4].tools[1]==0&&g.jet_ticks);dw_tick(&g,0);dw_tick(&g,DW_FIRE);dw_choose_weapon(&g,DW_JETPACK);assert(g.weapon==0);
  assert(fall_damage(40)==0);int medium=fall_damage(200),high=fall_damage(350);assert(medium>0&&high>medium);assert(fall_damage(650)==100);
  mobility_fixture();g.active=7;g.team=1;g.unit[3].x=1100;g.ai_wait=1;dw_ai(&g);assert(g.unit[7].tools[0]==1&&g.unit[7].y<1050); /* Lower enemy can escape. */
 }
 static void test_large_blasts(void){
- const int previous[5]={38,46,29,38,57};
- for(int kind=0;kind<5;kind++){
+ const int previous[DW_ATTACK_WEAPONS]={38,46,29,38};
+ for(int kind=0;kind<DW_ATTACK_WEAPONS;kind++){
   reset();for(int i=0;i<DW_W*DW_H;i++)g.terrain[i]=1;
   for(int i=0;i<10;i++){g.unit[i].x=2000+i*40;g.unit[i].y=1000;}
   int reach=previous[kind]*2+32;
@@ -68,7 +68,7 @@ static void test_easy_ai(void){int hits=0,damage=0,specials=0;
  printf("Forgiving AI: %d/200 hits, %.2f average damage, %d strong specials.\n",hits,damage/200.0,specials);
 }
 static void test_attack_damage_cap(void){
- for(int boss=0;boss<2;boss++)for(int kind=0;kind<5;kind++){
+ for(int boss=0;boss<2;boss++)for(int kind=0;kind<DW_ATTACK_WEAPONS;kind++){
   reset();g.active=boss?9:0;g.team=boss;g.weapon=kind;g.unit[1].x=600;g.unit[1].y=810;
   for(int attack=0;attack<2;attack++){
    g.state=DW_AIM;dw_fire(&g);
@@ -107,16 +107,16 @@ int main(int argc,char**argv){
  reset();g.weapon=1;g.power=40;dw_fire(&g);assert(g.shot[0].kind==1&&g.ammo[0][1]==4);for(int i=0;i<185;i++)dw_tick(&g,0);assert(!g.shot[0].live);assert(g.terrain_version>1);
  reset();g.weapon=2;dw_mark(&g,610,430);dw_fire(&g);int live=0;for(int i=0;i<8;i++)live+=g.shot[i].live;assert(live==5&&g.ammo[0][2]==1);for(int i=0;i<240;i++)dw_tick(&g,0);assert(g.terrain_version>=5);
  reset();g.weapon=3;dw_fire(&g);g.shot[0]=(struct dw_shot){440,100,0,-1,1,3,200,30};g.target=8;dw_tick(&g,0);assert(g.shot[0].vx>0&&g.mark_x==g.unit[8].x);
- reset();g.weapon=4;dw_fire(&g);g.shot[0]=(struct dw_shot){440,100,3,0,1,4,200,30};dw_tick(&g,DW_UP);assert(g.shot[0].vy<0);dw_tick(&g,DW_FIRE);assert(!g.shot[0].live);
+ mobility_fixture();for(int w=1;w<=DW_WEAPON_COUNT;w++){dw_tick(&g,DW_WEAPON);assert(g.weapon==w%DW_WEAPON_COUNT);dw_tick(&g,0);}dw_choose_weapon(&g,-1);dw_choose_weapon(&g,6);assert(g.weapon==0&&!dw_ammo(&g,-1)&&!dw_ammo(&g,6));
  reset();g.unit[1].y=DW_H;dw_tick(&g,0);assert(!g.unit[1].hp);
  reset();for(int i=5;i<10;i++)g.unit[i].hp=0;dw_tick(&g,0);assert(g.state==DW_FINALE&&g.winner==-1&&!g.finale_assisted);
  reset();for(int i=0;i<10;i++)g.unit[i].hp=0;dw_tick(&g,0);assert(g.state==DW_FINALE&&g.winner==-1&&g.finale_result==2);
- reset();dw_choose_weapon(&g,4);assert(g.weapon==4);g.ammo[0][3]=0;dw_choose_weapon(&g,3);assert(g.weapon==4);
+ reset();dw_choose_weapon(&g,1);assert(g.weapon==1);g.ammo[0][3]=0;dw_choose_weapon(&g,3);assert(g.weapon==1);
  dw_camera(0,0,0);dw_render(&g,pixels,0,0);assert(dw_overview);dw_camera(3,2400,1400);assert(!dw_overview&&dw_camera_x<=DW_W-880&&dw_camera_y<=DW_H-700);dw_camera(1,0,0);
  /* Play randomized player turns and real enemy turns through terrain destruction. */
- for(int match=0;match<12;match++){dw_reset(&g,100+match);for(int step=0;step<10000&&g.state!=DW_OVER;step++){unsigned key=0;if(!g.team&&g.state==DW_AIM){if(step%70==0)dw_choose_weapon(&g,(step/70)%5);key=step%120<50?DW_FIRE:0;if(step%21==0)key|=DW_JUMP;if(step%20<8)key|=step%2?DW_UP:DW_DOWN;}else if(!g.team&&g.state==DW_FLIGHT&&g.weapon==4)key=(step/30)%2?DW_UP:DW_RIGHT;dw_tick(&g,key);sane();if(step%601==0)dw_render(&g,pixels,0,match%2);}}
+ for(int match=0;match<12;match++){dw_reset(&g,100+match);for(int step=0;step<10000&&g.state!=DW_OVER;step++){unsigned key=0;if(!g.team&&g.state==DW_AIM){if(step%70==0)dw_choose_weapon(&g,(step/70)%DW_WEAPON_COUNT);key=step%120<50?DW_FIRE:0;if(step%21==0)key|=DW_JUMP;if(step%20<8)key|=step%2?DW_UP:DW_DOWN;}dw_tick(&g,key);sane();if(step%601==0)dw_render(&g,pixels,0,match%2);}}
  reset();dw_cached_version=0;dw_camera_x=(int)g.unit[0].x-440;dw_camera_y=(int)g.unit[0].y-410;dw_render(&g,pixels,0,0);
  if(argc>2){dw_overview=1;dw_render(&g,pixels,0,0);}
  if(argc>1){FILE*f=fopen(argv[1],"wb");assert(f);fprintf(f,"P6\n1280 800\n255\n");for(int i=0;i<1280*800;i++){unsigned char c[3]={pixels[i]>>16,pixels[i]>>8,pixels[i]};fwrite(c,1,3,f);}fclose(f);}
- printf("DJ Wars checks passed: hit pause/HP feedback/speaker graves, five weapons, larger blasts/falloff, teleport/jetpack, fall damage, AI, turns, terrain, win/draw, 12 randomized matches. Game state: %zu bytes; renderer cache + framebuffer: %zu bytes.\n",sizeof(g),sizeof(dw_back)+sizeof(pixels));return 0;
+ printf("DJ Wars checks passed: hit pause/HP feedback/speaker graves, four weapons, larger blasts/falloff, teleport/jetpack, fall damage, AI, turns, terrain, win/draw, 12 randomized matches. Game state: %zu bytes; renderer cache + framebuffer: %zu bytes.\n",sizeof(g),sizeof(dw_back)+sizeof(pixels));return 0;
 }

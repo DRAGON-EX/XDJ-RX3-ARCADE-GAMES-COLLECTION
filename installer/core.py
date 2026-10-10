@@ -5,7 +5,7 @@ import subprocess, sys, tempfile, time, urllib.request, zipfile
 from .vendor.rx3_toolkit import key_source, firmware_image
 
 ROOT = pathlib.Path(__file__).resolve().parent
-REPOSITORY = 'DRAGON-EX/XDJ-RX3-GAMES-COLLECTION'
+REPOSITORY = 'DRAGON-EX/XDJ-RX3-ARCADE-GAMES-COLLECTION'
 API = 'https://api.github.com/repos/' + REPOSITORY
 VERSION = '0.4.7'
 MAX_PACKAGE = 120 * 1024 * 1024
@@ -92,6 +92,22 @@ class GitHub:
         return json.loads(data)
     def file(self,path,commit):
         from urllib.parse import quote
+        if len(commit)!=40 or any(c not in '0123456789abcdef' for c in commit): raise InstallError('Invalid GitHub revision.')
+        if path.startswith('/') or '..' in path or '\\' in path: raise InstallError('Invalid package path.')
+        if not self.token:
+            # Public payloads use raw files; 94 chunks would exceed the anonymous API quota.
+            import certifi
+            url='https://raw.githubusercontent.com/'+REPOSITORY+'/'+commit+'/'+quote(path,safe='/')
+            class NoRedirect(urllib.request.HTTPRedirectHandler):
+                def redirect_request(self,*args,**kwargs): raise InstallError('Unexpected download redirect.')
+            opener=urllib.request.build_opener(NoRedirect,urllib.request.HTTPSHandler(context=ssl.create_default_context(cafile=certifi.where())))
+            try:
+                with opener.open(urllib.request.Request(url,headers={'User-Agent':'RX3-Arcade-Installer/'+VERSION}),timeout=60) as response:
+                    data=response.read(8*1024*1024+1)
+            except urllib.error.HTTPError as e:
+                raise InstallError('Game file download failed (HTTP '+str(e.code)+').') from None
+            if len(data)>8*1024*1024: raise InstallError('Download exceeds allowed size.')
+            return data
         obj=self.get(API+'/contents/'+quote(path,safe='/')+'?ref='+commit, 8*1024*1024)
         if obj.get('encoding')!='base64': raise InstallError('Unsupported GitHub file response.')
         return base64.b64decode(obj['content'])

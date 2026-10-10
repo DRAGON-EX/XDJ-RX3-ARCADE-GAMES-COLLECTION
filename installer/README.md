@@ -15,7 +15,7 @@ The Windows build must be produced on Windows; the Linux build on Linux.
    digests are checked, followed by the contents. An unrelated firmware update
    or package for another device is rejected.
 5. For a private project repository, enter a GitHub token with read-only Contents
-   access to `DRAGON-EX/XDJ-RX3-GAMES-COLLECTION`. It is not stored.
+   access to `DRAGON-EX/XDJ-RX3-ARCADE-GAMES-COLLECTION`. It is not stored.
 6. Leave **PERSISTENT SAVE FILE** off for session-only play (recommended).
    If enabled, highscores, rescued cats, finale victory and song unlocks survive
    restarts. **Unplugging during saving can corrupt the USB filesystem.**

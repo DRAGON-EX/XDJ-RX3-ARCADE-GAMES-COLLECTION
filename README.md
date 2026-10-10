@@ -1,4 +1,4 @@
-# XDJ-RX3-GAMES-COLLECTION
+# XDJ-RX3-ARCADE-GAMES-COLLECTION
 
 <p align="center">
   <img src="assets/readme/100-percent-vibecoded.gif" alt="100% VIBECODED" width="900">
@@ -47,7 +47,7 @@ Highscores, rescued cats and secret-track unlocks are session-only by default. T
 
 ![DJ DRAGON-X Cat Rescue Saga Installer on Linux](assets/readme/installer.png)
 
-Use the **DJ DRAGON-X Cat Rescue Saga Installer** for Windows or Linux. Download the matching ZIP from the [latest release](https://github.com/DRAGON-EX/XDJ-RX3-GAMES-COLLECTION/releases/latest), extract it fully, then run the installer inside.
+Use the **DJ DRAGON-X Cat Rescue Saga Installer** for Windows or Linux. Download the matching ZIP from the [latest release](https://github.com/DRAGON-EX/XDJ-RX3-ARCADE-GAMES-COLLECTION/releases/latest), extract it fully, then run the installer inside.
 
 1. Select your mounted FAT32 or exFAT USB stick.
 2. Obtain both XDJ-RX3 source-code packages yourself from the [Pioneer DJ source-code page](https://www.pioneerdj.com/en/support/open-source-code-distribution/gnu-open-source-license/) and read their terms.

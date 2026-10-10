@@ -9,6 +9,7 @@ int main(void){
  struct dw_audio_state a,b;int16_t out[4096],reference[4096];float gain=1,other=1;
  g.rng=42;g.state=DW_AIM;g.winner=-1;
  for(int e=1;e<=15;e++){
+  if(e==4)continue; /* Removed Super Dragon launch cue. */
   dw_audio_reset(&a);a.music_gain=0;g.event=e;g.event_serial++;
   dw_audio_mix(&a,&g,out,735,&gain,1,1,0);
   assert(nonzero(out,735)&&g.rng==42);
@@ -46,5 +47,5 @@ int main(void){
  dw_audio_mix(&a,&g,out,735,&gain,1,1,0);assert(nonzero(out,735));
  dw_audio_reset(&a);dw_audio_set_rate(&a,48000);g.old_buttons=0;g.shot[0].live=0;
  dw_audio_mix(&a,&g,out,800,&gain,1,1,1);assert(a.rate==48000&&a.step_left==48000u*60u/224u-800u);
- printf("DJ Wars audio: original score, 15 cues, motion/fuse cues, independent buses, master mute, finale music, bounds and independent RNG passed (%zu bytes).\n",sizeof a);
+ printf("DJ Wars audio: original score, 14 cues, motion/fuse cues, independent buses, master mute, finale music, bounds and independent RNG passed (%zu bytes).\n",sizeof a);
 }

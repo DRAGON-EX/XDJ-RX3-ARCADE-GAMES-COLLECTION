@@ -205,7 +205,7 @@ static void dj_wars_touch(int x,int y){
  if(dj_wars->state==DW_OVER||dj_wars->state==DW_FINALE)return;
  if(inside(x,y,177,742,138,33)){back_to_menu();return;}
  if(inside(x,y,25,742,132,33)){paused=!paused;return;}
- if(x>=24&&x<316&&y>=336&&y<560){dw_choose_weapon(dj_wars,(y-336)/32);return;}
+ if(x>=24&&x<316&&y>=336&&y<336+DW_WEAPON_COUNT*32){dw_choose_weapon(dj_wars,(y-336)/32);return;}
  if(inside(x,y,25,695,290,17)){dj_wars_pulse|=DW_JUMP;return;}
  if(inside(x,y,25,713,290,20)){dw_camera(0,0,0);return;}
  if(x>=1003&&x<1233&&y>=79&&y<225){dw_camera(3,(x-1008)*12,(y-86)*12);return;}
@@ -656,7 +656,7 @@ static void panel_input(void){
  if(menu&&help_page==3){music_browse(e.steps,e.click);}
  else if(menu&&help_page){help_scroll(e.steps);if(help_page==7&&e.click)story_continue();}
  else if(menu){if(e.steps){menu_move(e.steps);dummy_notice=0;}if(e.click)choose_game();}
- else if(selected_game==3&&dj_wars){if(e.steps)dw_choose_weapon(dj_wars,(dj_wars->weapon+e.steps%7+7)%7);if(e.click)dj_wars_pulse|=DW_JUMP;}else if(nes_active){nes_start|=e.click;}else if(e.direction)direction=e.direction;
+ else if(selected_game==3&&dj_wars){if(e.steps)dw_choose_weapon(dj_wars,(dj_wars->weapon+e.steps%DW_WEAPON_COUNT+DW_WEAPON_COUNT)%DW_WEAPON_COUNT);if(e.click)dj_wars_pulse|=DW_JUMP;}else if(nes_active){nes_start|=e.click;}else if(e.direction)direction=e.direction;
 }
 /* The plain launcher is static until a control or volume overlay changes.
  * Animated help/music/credits and games retain the 30 Hz display schedule. */

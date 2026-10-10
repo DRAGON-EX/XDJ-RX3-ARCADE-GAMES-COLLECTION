@@ -94,9 +94,16 @@ static void dw_finale_fireworks(unsigned ticks){
   {459,590,302,135,1,2},{478,1020,300,136,1,0},
   {520,480,278,119,3,3},{533,1105,276,126,3,3},{548,675,232,140,3,3},
   {560,930,235,148,3,3},{578,798,337,165,1,3},
-  {604,535,360,128,2,3},{614,1060,358,133,2,3},{634,790,213,170,3,3}
+  {604,535,360,128,2,3},{614,1060,358,133,2,3},{634,790,213,170,3,3},
+  {698,505,285,133,0,0},{721,1080,280,138,0,1},{758,790,225,160,1,2},
+  {812,600,340,142,2,4},{835,995,330,145,2,5},
+  {892,480,260,135,1,1},{914,1110,248,140,1,0},{947,800,300,165,0,2},
+  {998,520,290,148,3,3},{1015,1080,280,148,3,3},
+  {1052,660,230,160,3,3},{1070,945,238,160,3,3},{1100,795,320,178,1,3},
+  {1118,535,360,142,2,3},{1132,1060,358,146,2,3},{1146,790,213,178,3,3}
  };
- unsigned time=ticks%DW_FIREWORKS_TICKS;int water=dw_screen_y(DW_H-24);
+ /* Two opening cycles keep the sky active, then the full closing sequence. */
+ unsigned elapsed=ticks%DW_FIREWORKS_TICKS;unsigned time=elapsed<1500?elapsed%750:elapsed-1500;int water=dw_screen_y(DW_H-24);
  for(unsigned i=0;i<sizeof(shells)/sizeof(shells[0]);i++){
   const struct shell*s=&shells[i];dw_firework_shell((int)time-s->start,s->x,s->y,s->radius,s->kind,palette[s->color],i*29u+7u,water);
  }

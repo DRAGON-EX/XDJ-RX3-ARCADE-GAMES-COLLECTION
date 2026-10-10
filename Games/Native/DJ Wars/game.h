@@ -26,7 +26,11 @@
 #define DW_BARRAGE_TICK 540
 #define DW_BARRAGE_INTERVAL 54
 #define DW_CELEBRATE_TICK 810
-#define DW_FIREWORKS_TICKS 720
+#define DW_FIREWORKS_TICKS 2700
+#define DW_ATTACK_WEAPONS 4
+#define DW_TELEPORT 4
+#define DW_JETPACK 5
+#define DW_WEAPON_COUNT 6
 #define DW_VICTORY_TICKS DW_FIREWORKS_TICKS
 #define DW_ASSIST_TICKS (DW_CELEBRATE_TICK+DW_FIREWORKS_TICKS)
 struct dw_unit {float x,y,vx,vy;int hp,max_hp,team,kind,face,ground;float fall;int tools[2];unsigned blast_attack;int fall_limit;};
@@ -40,7 +44,7 @@ struct dw_game {
  struct dw_unit unit[DW_UNITS];struct dw_shot shot[DW_SHOTS];struct dw_particle particle[DW_PARTICLES];struct dw_blast blast[DW_BLASTS];
  uint32_t rng,ticks,terrain_version,event_serial;unsigned old_buttons;
  int team,active,last[2],turn,remaining,state,settle,winner,weapon,aim,power,charging,wind,target,ai_wait;
- int ammo[2][5],event,event_age,damage,flash,jet_ticks;
+ int ammo[2][DW_ATTACK_WEAPONS],event,event_age,damage,flash,jet_ticks;
  unsigned attack_id;int attack_damage[DW_UNITS];
  struct dw_feedback feedback[DW_UNITS];struct dw_grave grave[DW_UNITS];int hit_pause,hit_focus;
  int finale_tick,finale_assisted,finale_result,finale_target,finale_shots;
@@ -49,7 +53,7 @@ struct dw_game {
  float mark_x,mark_y;
 };
 static const char*dw_names[10]={"DJ-DRAGONX","YUKI","PEACH","COOKIE","MOCHI","DEADBEAT 1","DEADBEAT 2","DEADBEAT 3","DEADBEAT 4","DECK BOSS"};
-static const char*dw_weapons[7]={"BAZOOKA","GRENADE","AIRSTRIKE","HOMING ROCKET","SUPER DRAGON","TELEPORT","JETPACK"};
+static const char*dw_weapons[DW_WEAPON_COUNT]={"BAZOOKA","GRENADE","AIRSTRIKE","HOMING ROCKET","TELEPORT","JETPACK"};
 static const float dw_quarter[17]={0,.098017f,.195090f,.290285f,.382683f,.471397f,.555570f,.634393f,.707107f,.773010f,.831470f,.881921f,.923880f,.956940f,.980785f,.995185f,1};
 static float dw_sin(int a){a&=255;int neg=a>=128;if(neg)a-=128;if(a>64)a=128-a;int i=a/4;float v=i==16?1:dw_quarter[i]+(dw_quarter[i+1]-dw_quarter[i])*(a%4)*.25f;return neg?-v:v;}
 static float dw_abs(float v){return v<0?-v:v;}
@@ -197,11 +201,11 @@ static void dw_reset(struct dw_game*g,unsigned seed){*g=(struct dw_game){0};g->r
  }
  int positions[10]={1195,200,460,710,565,1510,1720,1930,2180,2480};
  for(int i=0;i<10;i++){int x=positions[i],y=(i==4||i==7)?1100:0;while(y<DW_H&&dw_solid(g,x,y))y++;while(y<DW_H&&!dw_solid(g,x,y))y++;int hp=i==0?140:i==9?180:100;g->unit[i]=(struct dw_unit){(float)x,(float)y,0,0,hp,hp,i/5,i==0?0:i<5?1:i==9?3:2,i<5?1:-1,1,0,{0,0}};if(i==4||i==7)g->unit[i].tools[0]=g->unit[i].tools[1]=2;}
- for(int t=0;t<2;t++){g->ammo[t][0]=99;g->ammo[t][1]=5;g->ammo[t][2]=2;g->ammo[t][3]=3;g->ammo[t][4]=2;}dw_select_target(g);dw_event(g,1);
+ for(int t=0;t<2;t++){g->ammo[t][0]=99;g->ammo[t][1]=5;g->ammo[t][2]=2;g->ammo[t][3]=3;}dw_select_target(g);dw_event(g,1);
 }
 static int dw_body_clear(const struct dw_game*g,float x,float y){return !dw_solid(g,(int)x-6,(int)y-3)&&!dw_solid(g,(int)x+6,(int)y-3)&&!dw_solid(g,(int)x,(int)y-13);}
 static int dw_pose_clear(const struct dw_game*g,int x,int y){for(int yy=y-38;yy<y;yy++)for(int xx=x-16;xx<=x+16;xx++)if(dw_solid(g,xx,yy))return 0;return 1;}
-static int dw_ammo(const struct dw_game*g,int w){return w<5?g->ammo[g->team][w]:g->unit[g->active].tools[w-5];}
+static int dw_ammo(const struct dw_game*g,int w){if(w<0||w>=DW_WEAPON_COUNT)return 0;return w<DW_ATTACK_WEAPONS?g->ammo[g->team][w]:g->unit[g->active].tools[w-DW_TELEPORT];}
 static void dw_move_unit(struct dw_game*g,struct dw_unit*u){if(u->hp<=0)return;
  int flying=g->jet_ticks>0&&u==&g->unit[g->active];
  float nx=dw_clamp(u->x+u->vx,9,DW_W-9);if(flying?dw_pose_clear(g,(int)nx,(int)u->y):dw_body_clear(g,nx,u->y))u->x=nx;else if(u->ground&&dw_body_clear(g,nx,u->y-4)){u->x=nx;u->y-=4;}else u->vx=0;
@@ -239,26 +243,25 @@ static void dw_explode(struct dw_game*g,float x,float y,int radius,int force){in
  g->blast[slot]=(struct dw_blast){x,y,radius,reach,36};
  dw_sparks(g,x,y,45,1);dw_event(g,2);
 }
-static void dw_detonate(struct dw_game*g,int i){struct dw_shot*s=&g->shot[i];int radius=s->kind==1?92:s->kind==2?58:s->kind==4?114:76,damage=s->kind==1?52:s->kind==2?30:s->kind==4?70:42;if(g->unit[g->active].kind==3)damage=damage*6/5;s->live=0;dw_explode(g,s->x,s->y,radius,damage);}
-static void dw_choose_weapon(struct dw_game*g,int w){if(g->state==DW_AIM&&!g->team&&!g->hit_pause&&!g->jet_ticks&&w>=0&&w<7&&dw_ammo(g,w)){g->weapon=w;g->charging=0;g->power=20;}}
+static void dw_detonate(struct dw_game*g,int i){struct dw_shot*s=&g->shot[i];int radius=s->kind==1?92:s->kind==2?58:76,damage=s->kind==1?52:s->kind==2?30:42;if(g->unit[g->active].kind==3)damage=damage*6/5;s->live=0;dw_explode(g,s->x,s->y,radius,damage);}
+static void dw_choose_weapon(struct dw_game*g,int w){if(g->state==DW_AIM&&!g->team&&!g->hit_pause&&!g->jet_ticks&&w>=0&&w<DW_WEAPON_COUNT&&dw_ammo(g,w)){g->weapon=w;g->charging=0;g->power=20;}}
 static void dw_mark(struct dw_game*g,int x,int y){if(g->state==DW_AIM&&!g->team&&!g->hit_pause){g->mark_x=dw_clamp(x,0,DW_W-1);g->mark_y=dw_clamp(y,0,DW_H-25);g->target=-1;}}
-static void dw_fire(struct dw_game*g){if(g->hit_pause||g->state!=DW_AIM||!dw_ammo(g,g->weapon)||g->unit[g->active].hp<=0)return;struct dw_unit*u=&g->unit[g->active];int w=g->weapon;if(w==5){dw_teleport(g);return;}if(w==6){dw_jetpack(g);return;}if(!++g->attack_id)g->attack_id=1;for(int j=0;j<DW_UNITS;j++)g->attack_damage[j]=0;if(w)g->ammo[g->team][w]--;g->state=DW_FLIGHT;g->charging=0;g->settle=0;
+static void dw_fire(struct dw_game*g){if(g->hit_pause||g->state!=DW_AIM||!dw_ammo(g,g->weapon)||g->unit[g->active].hp<=0)return;struct dw_unit*u=&g->unit[g->active];int w=g->weapon;if(w==DW_TELEPORT){dw_teleport(g);return;}if(w==DW_JETPACK){dw_jetpack(g);return;}if(!++g->attack_id)g->attack_id=1;for(int j=0;j<DW_UNITS;j++)g->attack_damage[j]=0;if(w)g->ammo[g->team][w]--;g->state=DW_FLIGHT;g->charging=0;g->settle=0;
  if(w==2){for(int i=0;i<5;i++)g->shot[i]=(struct dw_shot){dw_clamp(g->mark_x+(i-2)*27,4,DW_W-5),-30-i*28,0,3,1,2,360,0};dw_event(g,3);}
- else{float speed=3+g->power*.125f,dx=u->face*dw_sin(g->aim+64),dy=-dw_sin(g->aim);g->shot[0]=(struct dw_shot){u->x+dx*18,u->y-17+dy*18,dx*speed,dy*speed,1,w,w==1?180:w==4?420:480,0};dw_event(g,w==4?4:6);}
+ else{float speed=3+g->power*.125f,dx=u->face*dw_sin(g->aim+64),dy=-dw_sin(g->aim);g->shot[0]=(struct dw_shot){u->x+dx*18,u->y-17+dy*18,dx*speed,dy*speed,1,w,w==1?180:480,0};dw_event(g,6);}
 }
 static void dw_cycle_target(struct dw_game*g){for(int k=1;k<=10;k++){int i=(g->target+k+10)%10;if(g->unit[i].team!=g->team&&g->unit[i].hp>0){g->target=i;g->mark_x=g->unit[i].x;g->mark_y=g->unit[i].y-10;break;}}}
 static void dw_ai(struct dw_game*g){if(--g->ai_wait>0)return;dw_select_target(g);if(g->target<0)return;struct dw_unit*u=&g->unit[g->active],*t=&g->unit[g->target];u->face=t->x<u->x?-1:1;g->weapon=0;
  if(u->y>1050&&u->tools[0]){int dest;
   for(int off=100;off<=350;off+=25){int x=(int)t->x+u->face*off;if(dw_teleport_spot(g,x,0,&dest)&&dest<1050){g->mark_x=(float)x;g->mark_y=0;dw_teleport(g);g->ai_wait=45;return;}}
  }
- if(u->y>1050&&!u->tools[0]&&u->tools[1]){g->weapon=6;dw_jetpack(g);return;}
+ if(u->y>1050&&!u->tools[0]&&u->tools[1]){g->weapon=DW_JETPACK;dw_jetpack(g);return;}
  /* Forgiving AI: coarse estimates, noticeable aim errors and rare specials. */
  unsigned pick=dw_rand(g)%100;
  if(pick<20&&g->ammo[1][1])g->weapon=1;
  else if(g->turn>=8){
   if(pick>=90&&pick<94&&g->ammo[1][2])g->weapon=2;
   else if(pick>=94&&pick<97&&g->ammo[1][3])g->weapon=3;
-  else if(pick>=97&&g->ammo[1][4])g->weapon=4;
  }
  int error=(int)(dw_rand(g)%181)+60;if(dw_rand(g)&1)error=-error;
  float tx=dw_clamp(t->x+error,20,DW_W-20),ty=dw_clamp(t->y+(int)(dw_rand(g)%121)-60,40,DW_H-25);
@@ -290,19 +293,18 @@ static void dw_tick(struct dw_game*g,unsigned buttons){g->ticks++;unsigned edge=
   if(g->team)dw_ai(g);else{
    if(!g->charging){if(buttons&DW_LEFT){u->vx=-1.4f;u->face=-1;}if(buttons&DW_RIGHT){u->vx=1.4f;u->face=1;}if((edge&DW_JUMP)&&u->ground){u->vy=-4.8f;u->ground=0;u->vx=u->face*1.8f;}}
    if(buttons&DW_UP){if(g->aim<60)g->aim++;}if(buttons&DW_DOWN){if(g->aim>4)g->aim--;}
-   if(edge&DW_WEAPON)for(int i=1;i<=7;i++){int w=(g->weapon+i)%7;if(dw_ammo(g,w)){dw_choose_weapon(g,w);break;}}
+   if(edge&DW_WEAPON)for(int i=1;i<=DW_WEAPON_COUNT;i++){int w=(g->weapon+i)%DW_WEAPON_COUNT;if(dw_ammo(g,w)){dw_choose_weapon(g,w);break;}}
    if(edge&DW_TARGET)dw_cycle_target(g);
-   if(edge&DW_FIRE){if(g->weapon==2||g->weapon==4||g->weapon>=5){g->power=70;dw_fire(g);}else{g->charging=1;g->power=20;}}
+   if(edge&DW_FIRE){if(g->weapon==2||g->weapon>=DW_TELEPORT){g->power=70;dw_fire(g);}else{g->charging=1;g->power=20;}}
    if(g->charging){if(buttons&DW_FIRE){if(g->power<100)g->power++;}else dw_fire(g);}
   }
  }
  if(g->state==DW_FLIGHT){int active=0;for(int i=0;i<DW_SHOTS;i++){struct dw_shot*s=&g->shot[i];if(!s->live)continue;active++;s->age++;s->life--;
   if(s->kind==3&&s->age>18){if(g->target>=0&&g->unit[g->target].hp>0){g->mark_x=g->unit[g->target].x;g->mark_y=g->unit[g->target].y-12;}float dx=g->mark_x-s->x,dy=g->mark_y-s->y,n=dw_abs(dx)+dw_abs(dy)+.001f;s->vx=s->vx*.975f+dx/n*.3f;s->vy=s->vy*.975f+dy/n*.3f;}
-  else if(s->kind==4){float dx=0,dy=0;if(g->team){dx=g->mark_x-s->x;dy=g->mark_y-s->y;}else{dx=(buttons&DW_RIGHT?1:0)-(buttons&DW_LEFT?1:0);dy=(buttons&DW_DOWN?1:0)-(buttons&DW_UP?1:0);}float n=dw_abs(dx)+dw_abs(dy);if(n>0){s->vx=s->vx*.9f+dx/n*.65f;s->vy=s->vy*.9f+dy/n*.65f;}if(!g->team&&(edge&DW_FIRE)&&s->age>12){dw_detonate(g,i);continue;}}
   else{s->vx+=g->wind*.0007f;s->vy+=.14f;}
   int steps=(int)(dw_abs(s->vx)+dw_abs(s->vy))+1;if(steps>64)steps=64;int touched=0;
   for(int k=0;k<steps&&s->live;k++){float nx=s->x+s->vx/steps,ny=s->y+s->vy/steps;if(dw_solid(g,(int)nx,(int)ny)){if(s->kind==1){if(dw_solid(g,(int)nx,(int)s->y))s->vx*=-.6f;else s->vy*=-.58f;s->vx*=.86f;touched=1;break;}else{dw_detonate(g,i);break;}}s->x=nx;s->y=ny;for(int j=0;j<10&&s->live;j++)if(g->unit[j].hp>0&&(j!=g->active||s->age>16)&&s->kind!=1){float dx=s->x-g->unit[j].x,dy=s->y-(g->unit[j].y-13);if(dx*dx+dy*dy<140)dw_detonate(g,i);}}
-  if(!s->live)continue;if(!s->life){dw_detonate(g,i);continue;}if(s->x<0||s->x>=DW_W||s->y>DW_H-20||s->y<-250){s->live=0;continue;}if(g->ticks%3==0&&!touched)dw_sparks(g,s->x,s->y,1,s->kind==4?0:3);
+  if(!s->live)continue;if(!s->life){dw_detonate(g,i);continue;}if(s->x<0||s->x>=DW_W||s->y>DW_H-20||s->y<-250){s->live=0;continue;}if(g->ticks%3==0&&!touched)dw_sparks(g,s->x,s->y,1,3);
  }
  if(!active){g->state=DW_SETTLE;g->settle=110;}}
  if(!g->hit_pause&&g->state==DW_SETTLE&&!--g->settle)dw_next_turn(g);

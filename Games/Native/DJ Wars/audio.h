@@ -54,7 +54,6 @@ static void dw_audio_event(struct dw_audio_state*a,const struct dw_game*g){
   case 1:dw_fx_note(a,g->team?262:523,g->team?196:659,160,1600,0);break;
   case 2:dw_fx_note(a,95,24,800,6000,3);dw_fx_note(a,180,45,230,3800,2);break;
   case 3:dw_fx_note(a,190,65,1300,2400,3);dw_fx_note(a,1200,320,1000,1700,0);break;
-  case 4:dw_fx_note(a,170,450,750,2600,3);dw_fx_note(a,660,1320,400,1500,0);break;
   case 5:dw_fx_note(a,330,80,800,2000,0);dw_fx_note(a,90,30,450,1900,2);break;
   case 6:if(g->weapon==1){dw_fx_note(a,650,200,120,1700,0);dw_fx_note(a,180,85,90,1800,3);}else {dw_fx_note(a,230,55,380,4000,3);dw_fx_note(a,g->weapon==3?1400:950,300,220,2200,2);}break;
   case 7:dw_fx_note(a,220,1760,550,2000,0);dw_fx_note(a,1760,440,750,1700,0);break;
