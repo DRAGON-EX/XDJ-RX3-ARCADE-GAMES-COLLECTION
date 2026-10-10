@@ -44,4 +44,14 @@ jobs:
       - name: Update release installer downloads
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload v0.4.7 installers/*.zip --clobber --repo "$GITHUB_REPOSITORY"
+        working-directory: installers
+        run: |
+          sha256sum *.zip > SHA256SUMS.txt
+          gh release upload v0.4.7 *.zip SHA256SUMS.txt --clobber --repo "$GITHUB_REPOSITORY"
+          gh release view v0.4.7 --repo "$GITHUB_REPOSITORY" --json body --jq .body > release-notes.md
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('release-notes.md')
+          p.write_text(p.read_text().replace('XDJ-RX3-GAMES-COLLECTION', 'XDJ-RX3-ARCADE-GAMES-COLLECTION').replace('/blob/v0.4.7/', '/blob/main/'))
+          PY
+          gh release edit v0.4.7 --repo "$GITHUB_REPOSITORY" --notes-file release-notes.md
