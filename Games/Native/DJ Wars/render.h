@@ -126,7 +126,7 @@ static void dw_grave_art(const struct dw_grave*t,int team){int x=(int)t->x,y=(in
 static void dw_health_badge(const struct dw_unit*u,int i,int x,int y,int active){
  int head=dw_overview?18:u->kind==3?50:42;unsigned col=u->team?0xe387c6:0x7becd6;
  int chars=0;while(dw_names[i][chars])chars++;
- dw_rect(x-chars*3-2,y-head-32,chars*6+3,10,0x10121c);dw_text(x-chars*3,y-head-31,1,dw_names[i],col);
+ int name_x=(int)dw_clamp(x-chars*3,362,1237-chars*6);dw_rect(name_x-2,y-head-32,chars*6+3,10,0x10121c);dw_text(name_x,y-head-31,1,dw_names[i],col);
  dw_rect(x-23,y-head-20,46,7,0x0a1120);dw_rect(x-22,y-head-19,44*u->hp/u->max_hp,5,u->hp<=25?0xff5963:col);
  dw_rect(x-21,y-head-12,42,10,0x10121c);dw_number(x-18,y-head-11,1,u->hp,0xffedcf);dw_text(x+5,y-head-11,1,"HP",0x9faac0);
  if(active){int yy=y-head-43;dw_tri(x-5,yy,x+5,yy,x,yy+6,0xffcf7b);}
@@ -171,7 +171,7 @@ static void dw_render(struct dw_game*g,unsigned*buffer,int paused,int neon){dw_t
  dw_text(377,25,2,"DRAGON AND CATS / THE MOUSE CREW",0x9fb4cc);
  if(g->state==DW_FINALE||(g->state==DW_OVER&&g->finale_result>=0)){dw_finale_render(g);return;}
  dw_text(25,30,5,"DJ WARS",0xff405c);dw_text(26,81,2,"NIGHTCLUB SHOWDOWN",0x9ca9c4);dw_rect(25,112,290,2,0x473046);
- struct dw_unit*u=&g->unit[g->active];dw_character(69,213,u->kind,g->active,2,g->ticks,1);dw_text(135,129,2,g->team?"ENEMY TURN":"YOUR TURN",g->team?0xe387c6:0x7becd6);dw_number(135,165,5,(g->remaining+59)/60,g->remaining<900?0xff405c:0xffd59a);dw_text(211,192,1,"SECONDS",0x899ab5);dw_text(27,228,2,dw_names[g->active],0xe6dcec);dw_text(217,230,1,"TURN",0x7b8da9);dw_number(265,228,2,g->turn,0xe6dcec);
+ struct dw_unit*u=&g->unit[g->active];dw_character(69,213,u->kind,g->active,2,g->ticks,1);dw_text(135,129,2,g->team?"ENEMY TURN":"YOUR TURN",g->team?0xe387c6:0x7becd6);dw_number(135,165,5,(g->remaining+59)/60,g->remaining<900?0xff405c:0xffd59a);dw_text(211,192,1,"SECONDS",0x899ab5);int name_length=0;while(dw_names[g->active][name_length])name_length++;dw_text(27,228,name_length>15?1:2,dw_names[g->active],0xe6dcec);dw_text(217,230,1,"TURN",0x7b8da9);dw_number(265,228,2,g->turn,0xe6dcec);
  for(int t=0;t<2;t++){int y=267+t*35;dw_text(25,y,1,t?"MOUSE CREW":"DRAGON CREW",0x929ab2);dw_rect(123,y,154,9,0x231d31);dw_rect(123,y,154*dw_health(g,t)/(t?580:540),9,t?0xd867a9:0x60c9b4);dw_number(291,y,1,dw_alive(g,t),0xffffff);}
  for(int w=0;w<DW_WEAPON_COUNT;w++){int y=336+w*32,ammo=dw_ammo(g,w);dw_box(24,y,292,30,w==g->weapon?0xff405c:0x322738);dw_weapon_icon(31,y-2,w);dw_text(73,y+11,w==3?1:2,dw_weapons[w],ammo?0xdfd5e6:0x686174);if(w)dw_number(294,y+11,1,ammo,0xf6c781);}
  dw_text(25,570,1,g->jet_ticks?"JETPACK FUEL":"SHOT POWER",0x99a6bd);dw_rect(25,583,290,8,0x29223b);dw_rect(25,583,g->jet_ticks?g->jet_ticks*290/600:g->power*290/100,8,g->jet_ticks?0xffb970:g->charging?0xffb970:0x548d98);dw_text(25,596,2,"WIND",0x8ca0b8);dw_number(215,596,2,g->wind<0?-g->wind:g->wind,0xc9dded);int tip=g->wind>=0?195:127;dw_line(128,603,194,603,2,0x84d7d0);dw_line(tip,603,tip+(g->wind>=0?-7:7),597,2,0x84d7d0);dw_line(tip,603,tip+(g->wind>=0?-7:7),609,2,0x84d7d0);

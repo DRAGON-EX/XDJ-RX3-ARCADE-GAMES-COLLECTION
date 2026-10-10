@@ -1,7 +1,7 @@
 // DJ Wars owns an original score; keep the shared playlist paused at its position.
 window.RX3Audio?.claimSoundtrack('dj-wars');
 const canvas=document.querySelector('#game'),ctx=canvas.getContext('2d',{alpha:false}),status=document.querySelector('#status'),start=document.querySelector('#start');
-const names=['DJ-DRAGONX','YUKI','PEACH','COOKIE','MOCHI','DEADBEAT 1','DEADBEAT 2','DEADBEAT 3','DEADBEAT 4','DECK BOSS'];
+const names=['DJ-DRAGONX','YUKI','PEACH','COOKIE','MOCHI','SYNC BUTTON LOVER','MC TRAINWRECKER','DJ REDLINE','CAPTAIN BAD DROP','DEADMAU5'];
 const params=new URLSearchParams(location.search),theme=params.get('theme')==='neon'?1:0;
 const demo=['guetta','victory','play'].includes(params.get('demo'))?params.get('demo'):null;
 if(demo)document.title=demo==='guetta'?'DJ Wars · Guetta Rescue':demo==='victory'?'DJ Wars · Victory Party':'DJ Wars · Play with Sound';
@@ -65,4 +65,4 @@ document.querySelector('#volume').oninput=e=>{volume=Number(e.target.value)/100;
 document.querySelector('#sound').textContent='SOUND: ON';
 document.querySelector('#sound').onclick=e=>{sound=!sound;if(sound)startSound().catch(()=>{});else stopSound();e.target.textContent=sound?'SOUND: ON':'SOUND: OFF';};
 window.addEventListener('pagehide',dispose,{once:true});
-if(!demo&&!window.RX3Session.allCats){dispose();window.RX3Session.navigate(new URL('../../../launcher-preview.html?finale=1&v=cat-finale-1',location.href).href);}else try{const response=await fetch('dj-wars.wasm?v=16-longer-finale');if(!response.ok)throw Error('Game module missing');const result=await WebAssembly.instantiate(await response.arrayBuffer(),{});game=result.instance.exports;game.game_reset(0xD1A6);if(demo&&demo!=='play')game.game_demo(demo==='guetta'?1:0);image=new ImageData(new Uint8ClampedArray(game.memory.buffer,game.game_buffer(),1280*800*4),1280,800);update();raf=requestAnimationFrame(frame);}catch(e){dispose();status.textContent='DJ WARS COULD NOT LOAD: '+e.message;}
+if(!demo&&!window.RX3Session.allCats){dispose();window.RX3Session.navigate(new URL('../../../launcher-preview.html?finale=1&v=cat-finale-1',location.href).href);}else try{const response=await fetch('dj-wars.wasm?v=17-dj-crew');if(!response.ok)throw Error('Game module missing');const result=await WebAssembly.instantiate(await response.arrayBuffer(),{});game=result.instance.exports;game.game_reset(0xD1A6);if(demo&&demo!=='play')game.game_demo(demo==='guetta'?1:0);image=new ImageData(new Uint8ClampedArray(game.memory.buffer,game.game_buffer(),1280*800*4),1280,800);update();raf=requestAnimationFrame(frame);}catch(e){dispose();status.textContent='DJ WARS COULD NOT LOAD: '+e.message;}

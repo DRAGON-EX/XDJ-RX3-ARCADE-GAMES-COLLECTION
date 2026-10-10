@@ -2,13 +2,13 @@
   "format": 1,
   "version": "0.4.7",
   "model": "XDJ-RX3",
-  "sha256": "93017300535fea3c47747e64b9812316927f88fefc33283dc6404e7e67bdf80d",
-  "payload_bytes": 78261337,
+  "sha256": "0ccecba7506685da81a49a4f799218eff6285959458577c784d04e89e9f4eb5f",
+  "payload_bytes": 78261317,
   "chunks": [
     {
       "path": "release/chunks/000.part",
       "size": 768000,
-      "sha256": "f9aaa3882cfdfd7130dc6079d908e4f35b1b357cad5d9367dfb91ad252c3527b"
+      "sha256": "0a83b9b4a377f7d885a49b9a6c14f8cb7307adce540b41fef18ec359805e43ff"
     },
     {
       "path": "release/chunks/001.part",
@@ -458,22 +458,22 @@
     {
       "path": "release/chunks/090.part",
       "size": 768000,
-      "sha256": "672b6094e37b5bab9f499bb04bcf3b84d184de332778533748f2fe6b51bace26"
+      "sha256": "e2bd1da356aad969219ce0875d4fef79598ca151d9fd6dc8019097f068047777"
     },
     {
       "path": "release/chunks/091.part",
       "size": 768000,
-      "sha256": "2ba71041b9e51448a1337e54a158cf222bbb00f0024a669e8bd05d3a94a78098"
+      "sha256": "b703c27177c1a9e1b9e5dc6a32148c96806a98040bdbb57f5dc0a17a02f50d95"
     },
     {
       "path": "release/chunks/092.part",
       "size": 768000,
-      "sha256": "f2c3f853dc002526a45db5912e98af4a12fe326813fa09ac6d551d5ebb603dbd"
+      "sha256": "04875b840be4c6e5f7e7324e3d539ee1136a48e29e969071e7138c8e023afe75"
     },
     {
       "path": "release/chunks/093.part",
-      "size": 758043,
-      "sha256": "cacf09d3317aec2a1f11f702bd08ad66e6083928a7041f2d93cc47100f7b8d9e"
+      "size": 758113,
+      "sha256": "0ba84649f6a7fd54a89d5c4188cc84e8c6ad293bcbbf67298407553b970e6b5a"
     }
   ]
 }

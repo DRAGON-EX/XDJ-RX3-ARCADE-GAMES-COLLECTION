@@ -9,13 +9,13 @@ WebAssembly and compile for RX3 ARMv7 softfp. Browser preview:
   uneven overhangs and an open passage between the layers. Club artwork is
   anchored in world coordinates and moves/scales with the camera.
 - Five allies: DJ-DRAGONX the dragon (140 HP), Yuki, Peach, Cookie and Mochi (100 HP).
-- Five AI opponents: four fictional mouse-helmet performers (100 HP) and Deck
-  Boss (180 HP, 20% extra blast damage). The friendly crew uses the exact Purr House Café cat and dragon artwork.
+- Five AI opponents: SYNC BUTTON LOVER, MC TRAINWRECKER, DJ REDLINE and
+  CAPTAIN BAD DROP (100 HP each), led by deadmau5 (180 HP, 20% extra blast damage). The friendly crew uses the exact Purr House Café cat and dragon artwork.
 - Alternating teams and fighters, 90-second action timer, changing wind,
   blast damage/knockback, friendly fire, drowning, a victory celebration or a guest-DJ rescue after defeat/draw, and restart.
 - Unlimited bazooka, five grenades, two airstrikes, three homing rockets
   per team. Grenades have a three-second fuse.
-- Mochi and Deadbeat 3 start on the lower level with two teleports and two
+- Mochi and DJ Redline start on the lower level with two teleports and two
   ten-second jetpacks each. Teleport rejects obstructed/occupied destinations.
   A successful teleport ends the turn after a short effect; invalid destinations
   preserve the use and turn. Jetpacks keep the turn timer running. The enemy can

@@ -166,7 +166,7 @@ static void dw_finale_reunion(const struct dw_game*g,unsigned clock){
   dw_finale_word(800,666,2,"NO ENCORE. NO REFUNDS.",0xa9bac9);
   return;
  }
- dw_finale_word(458,741,1,"DECK BOSS",0xb994a7);dw_finale_word(458,756,1,"OFFLINE",0x836d86);
+ dw_finale_word(458,741,1,dw_names[9],0xb994a7);dw_finale_word(458,756,1,"OFFLINE",0x836d86);
  static const int xs[]={570,690,956,1095},sizes[]={143,151,145,153};
  /* Foreground reunion portraits retain the map and its real units beneath;
     they never relocate, revive or otherwise mutate the combat simulation. */

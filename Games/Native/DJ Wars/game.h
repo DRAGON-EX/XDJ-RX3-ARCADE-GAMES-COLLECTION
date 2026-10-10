@@ -52,7 +52,7 @@ struct dw_game {
  float finale_x,finale_y,finale_home_x,finale_home_y;
  float mark_x,mark_y;
 };
-static const char*dw_names[10]={"DJ-DRAGONX","YUKI","PEACH","COOKIE","MOCHI","DEADBEAT 1","DEADBEAT 2","DEADBEAT 3","DEADBEAT 4","DECK BOSS"};
+static const char*dw_names[10]={"DJ-DRAGONX","YUKI","PEACH","COOKIE","MOCHI","SYNC BUTTON LOVER","MC TRAINWRECKER","DJ REDLINE","CAPTAIN BAD DROP","DEADMAU5"};
 static const char*dw_weapons[DW_WEAPON_COUNT]={"BAZOOKA","GRENADE","AIRSTRIKE","HOMING ROCKET","TELEPORT","JETPACK"};
 static const float dw_quarter[17]={0,.098017f,.195090f,.290285f,.382683f,.471397f,.555570f,.634393f,.707107f,.773010f,.831470f,.881921f,.923880f,.956940f,.980785f,.995185f,1};
 static float dw_sin(int a){a&=255;int neg=a>=128;if(neg)a-=128;if(a>64)a=128-a;int i=a/4;float v=i==16?1:dw_quarter[i]+(dw_quarter[i+1]-dw_quarter[i])*(a%4)*.25f;return neg?-v:v;}
