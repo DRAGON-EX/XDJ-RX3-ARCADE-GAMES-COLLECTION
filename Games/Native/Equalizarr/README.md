@@ -29,7 +29,7 @@ A session starts with four lives. Level completion preserves remaining lives and
 The field is on the right, score/lives/powers on the left. Uses the launcher's
 pixel font and red/black or neon theme. No ROM or external graphics/audio assets.
 The bounded game state is 3,108 bytes; framebuffer memory is shared with the launcher.
-60 Hz simulation and a 30 FPS rendering target; RX3 performance still needs a device test.
+60 Hz simulation and a 30 FPS rendering target.
 
 Build with `make equalizarr` and `sh tools/build_native.sh`.
 Test with `make test-equalizarr test-native`. The level audit checks all 50

@@ -37,8 +37,7 @@ The installer can enable persistent saves across application restarts.
 Build: `make space-invaders` and `sh tools/build_native.sh`.
 Checks: `make test-space-invaders test-native`; core tests also run under address
 and undefined-behavior sanitizers. Native ARM execution/rendering is checked in
-QEMU. Actual RX3 frame pacing, listening and controls still need a hardware run.
-Browser controls are intentionally not part of this verification.
+QEMU.
 
 Preview: `Games/Native/Space Invaders/space-invaders.html`.
 Native flag: `--space-invaders`. Source files use the internal Space Invaders folder name.

@@ -8,7 +8,9 @@
 
 **Save the cats. Humble the mouse. Drop the beat.**
 
-I started this project for one simple reason: I wanted to know whether I could make games run on my XDJ-RX3. Turns out, yes. Yes, I could.
+This started as a **proof of concept**. I just wanted to see if I could get Pac-Man running on my XDJ-RX3. It worked. Then one idea turned into another, I kept adding things, and… here we are.
+
+At some point I thought: okay, let's give this a purpose beyond playing Pac-Man on a DJ controller. So it became a little arcade adventure: rescue four cats, bring them home to a café, and take on one very annoying mouse in a final showdown.
 
 There was no grand business plan. Just curiosity, a DJ controller that clearly had other plans for its evening, and a lot of “what if?”. This project is **100% VIBECODED**: built with AI-assisted coding, stubborn experimentation and an unreasonable amount of affection for dragons and cats. Open-source components made parts of it possible; their authors and licenses are credited below.
 
@@ -45,7 +47,7 @@ Highscores, rescued cats and secret-track unlocks are session-only by default. T
 
 ![DJ DRAGON-X Cat Rescue Saga Installer on Linux](assets/readme/installer.png)
 
-Use the **DJ DRAGON-X Cat Rescue Saga Installer** for Windows or Linux. Download the matching ZIP from the [latest release](https://github.com/DRAGON-EX/XDJ-RX3-GAMES-COLLECTION/releases/latest), extract it fully, then run the installer inside. GitHub downloads require access while this repository is private.
+Use the **DJ DRAGON-X Cat Rescue Saga Installer** for Windows or Linux. Download the matching ZIP from the [latest release](https://github.com/DRAGON-EX/XDJ-RX3-GAMES-COLLECTION/releases/latest), extract it fully, then run the installer inside.
 
 1. Select your mounted FAT32 or exFAT USB stick.
 2. Obtain both XDJ-RX3 source-code packages yourself from the [Pioneer DJ source-code page](https://www.pioneerdj.com/en/support/open-source-code-distribution/gnu-open-source-license/) and read their terms.
@@ -53,7 +55,7 @@ Use the **DJ DRAGON-X Cat Rescue Saga Installer** for Windows or Linux. Download
 4. Leave persistent saving off unless you understand and accept the warning.
 5. Install, wait for successful verification, then safely eject the stick on your computer.
 
-The installer downloads the current game package, backs up an existing `autoexec.bin`, and prepares its replacement without formatting your drive. Your music and playlists stay in place. See the [installer instructions](installer/README.md) for details, including private-repository access.
+The installer downloads the current game package, backs up an existing `autoexec.bin`, and prepares its replacement without formatting your drive. Your music and playlists stay in place. See the [installer instructions](installer/README.md) for details.
 
 ## FAQ
 
@@ -83,7 +85,7 @@ Just unplug the USB stick. That's it.
 
 ### Does the game remember my progress?
 
-Only if you enable **PERSISTENT SAVE FILE** during installation. Otherwise highscores and unlocks last for the current session. With saving enabled, avoid removing the stick while **SAVING** is displayed. Debug-unlocked sessions never save their unlocks.
+Only if you enable **PERSISTENT SAVE FILE** during installation. Otherwise highscores and unlocks last for the current session. With saving enabled, avoid removing the stick while **SAVING** is displayed.
 
 ### Why do I need two Pioneer files?
 
@@ -91,7 +93,7 @@ The installer uses the manufacturer source packages locally to prepare the RX3-c
 
 ### Does it work on every Pioneer / AlphaTheta device?
 
-No. This project targets the **XDJ-RX3**. Similar looks or branding do not establish compatibility with another model or firmware version. The newest LED-show and persistent-save behavior still need final testing on the physical RX3.
+No. This project targets the **XDJ-RX3**. Similar looks or branding do not establish compatibility with another model or firmware version.
 
 A port to the **CDJ-3000 / CDJ-3000X** might be fairly straightforward, though I haven't verified that yet. Maybe you can even vibecode it yourself. If you get it running, let me know! :D
 

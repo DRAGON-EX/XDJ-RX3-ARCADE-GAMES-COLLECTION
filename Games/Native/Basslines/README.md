@@ -33,8 +33,7 @@ existing pixel font, red/black or neon theme, right-hand playfield and left-hand
 scoreboard. No ROM, external engine or licensed game assets are required.
 The game state occupies 15,432 bytes; AI scratch space stays below 8 KiB and is
 reused on the stack. Framebuffer memory is shared with the native launcher.
-60 Hz simulation, 30 FPS rendering target. Actual RX3 performance/control testing
-remains necessary; QEMU is a compatibility check, not a hardware benchmark.
+60 Hz simulation, 30 FPS rendering target.
 
 Build: `make basslines` and `sh tools/build_native.sh`.
 Tests: `make test-basslines test-native` (collisions, simultaneous ties, turns,

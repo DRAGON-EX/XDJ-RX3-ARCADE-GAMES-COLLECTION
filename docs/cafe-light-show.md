@@ -77,8 +77,7 @@ The source implementation is independent. Firmware dumps/disassembly are
 local analysis evidence, not copied into the distributed asset package.
 Unknown bits remain at the launcher's existing baseline. Jog LCD/ring
 controllers, USB status indicators and level meters are not addressed by
-this show. Physical brightness, colour calibration and perceived sync need
-an RX3 run; desktop packet tests cannot validate the actual panel.
+this show.
 
 ## Native integration
 

@@ -7,7 +7,7 @@ best score, wave and lives on the left. Shares the RX3 palette and pixel font.
   then two small rocks. Points: 20 / 50 / 100.
 - Large and small UFOs (200 / 1000 points), hyperspace with re-entry risk,
   three lives and an extra life every 10,000 points.
-- 60 Hz simulation, 30 FPS display target; actual RX3 frame rate needs hardware testing.
+- 60 Hz simulation, 30 FPS display target.
 - Fixed object pools; game state is 7,052 bytes. No ROMs or original sound assets.
   Sound effects are procedural, with master volume and native 48 kHz output.
 

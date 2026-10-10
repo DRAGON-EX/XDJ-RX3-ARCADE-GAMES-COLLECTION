@@ -1,6 +1,6 @@
 # DJ Wars — Nightclub Showdown
 
-Original lightweight turn-based artillery prototype inspired by Worms.
+Original lightweight turn-based artillery game inspired by Worms.
 A shared allocation-free C simulation and renderer run in the browser through
 WebAssembly and compile for RX3 ARMv7 softfp. Browser preview:
 [dj-wars.html](dj-wars.html).
@@ -71,8 +71,7 @@ when passed an output filename. Address/undefined-behaviour sanitizers were used
 The browser reserves a fixed **16 MiB** WebAssembly memory with growth disabled.
 C simulation state occupies about 4 MiB (compiler alignment may vary);
 framebuffer and cached static artwork together occupy 8,192,000 bytes. Browser
-canvas and audio overhead are additional. These are allocation sizes, not a
-measurement of total RX3 process memory or verified RX3 FPS.
+canvas and audio overhead are additional.
 
 ## Rendering performance
 
@@ -86,14 +85,14 @@ The launcher skips unchanged frames. Device logs identify the active
 scene and report game-step, drawing, display-copy and peak frame times separately.
 Run `make test-dj-wars-render test-native` for cache and menu invalidation checks.
 
-## Prototype limits
+## RX3 controls
 
 The RX3 launcher includes the game: COLOR FX moves/aims,
 BEAT FX ON/OFF charges/fires, BROWSE changes equipment and its push jumps.
 Touch selects weapons/targets, pauses and returns to MENU. Game state and the
-render cache are released when returning to the launcher. The current sound and
-ending still need a check on the actual RX3. The game requires the RX3 1280 × 800 display. The enemy AI is basic, and weapon balance and movement still need
-playtesting. This project does not contain Worms code or original game assets.
+render cache are released when returning to the launcher. The game uses the
+RX3 1280 × 800 display. This project does not contain Worms code or original
+game assets.
 
 ## Finale and sound
 
